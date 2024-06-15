@@ -66,10 +66,10 @@
       </div>
       <select class="custom-select d-block my-2" id="change-page">
         <option value="">Choose Page</option>
-        <option value="index">Topbar</option>
-        <option value="blog-topbar">Blog (Topbar)</option>
-        <option value="index-2">Minibar</option>
-        <option value="blog-minibar">Blog (Minibar)</option>
+        <option value="index">Home</option>
+        <option value="projects">Projects</option> <!--Top Bar-->
+        <!-- <option value="index-2">Minibar</option>
+        <option value="blog-minibar">Blog (Minibar)</option> -->
       </select>
     </div>
   </div>
@@ -89,11 +89,11 @@
         <li class="nav-item">
           <a href="#about" class="nav-link" data-animate="scrolling">About</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="#portfolio" class="nav-link" data-animate="scrolling">Portfolio</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a href="#blog" class="nav-link" data-animate="scrolling">Blog</a>
+          <a href="#blog" class="nav-link" data-animate="scrolling">Projects</a>
         </li>
         <li class="nav-item">
           <a href="#contact" class="nav-link" data-animate="scrolling">Contact</a>
@@ -105,9 +105,9 @@
     <div class="caption-header text-center wow zoomInDown">
       <h5 class="fw-normal">Welcome</h5>
       <h1 class="fw-light mb-4">I'm <b class="fg-theme">Eric</b> Hou</h1>
-      <div class="badge">Student and Robotics Enthusiast</div>
+      <div href="#about" data-animate="scrolling" class="badge nav-link" style="cursor: pointer;">Student and Robotics Enthusiast</div>
     </div>
-    <div class="floating-button"><span class="ti-mouse"></span></div>
+    <!-- <div class="floating-button"><span class="ti-mouse"></span></div> -->
   </div>
   
   
@@ -126,70 +126,133 @@
           <ul class="theme-list">
             <li><b>Located in:</b> Fremont, CA</li>
             <li><b>Skills:</b> Mechanical Design, Full Stack Development, Mechatronics, AI</li> 
-            <li><b>Interests:</b> Music, Martial Arts, IoT</li> 
           </ul>
           <!-- add href to github pdf later  -->
           <a href="../assets/docs/randomdogimg.png" class="btn btn-theme-outline">Download CV</a>
         </div>
       </div>
     </div>
+    <!-- skills page -->
     <div class="container py-5">
-      <h1 class="text-center fw-normal wow fadeIn">My Skills</h1>
+      <h1 class="text-center fw-normal wow fadeIn">Skills</h1>
       <div class="row py-3">
         <div class="col-md-6">
           <div class="px-lg-3">
-            <h4 class="wow fadeInUp">Coding skills</h4>
+            <h4 class="wow fadeInUp">Hardware</h4>
             <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">JavaScript</span>
+              <span class="caption">Autodesk Fusion 360</span>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 86%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">86%</div>
+              <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">5 years</div>
               </div>
             </div>
             <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">PHP</span>
+              <span class="caption">3D Printing & Laser Cutting</span>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">80%</div>
+              <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">5 years</div>
               </div>
             </div>
             <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">HTML + CSS</span>
+              <span class="caption">Microcontrollers + Electronics</span>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">100%</div>
+              <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">5 years</div>
               </div>
             </div>
             <div class="progress-wrapper wow fadeInUp">
+              <span class="caption">PCB Design</span>
+              <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="px-lg-3">
+            <h4 class="wow fadeInUp">Software</h4>
+            <div class="progress-wrapper wow fadeInUp">
+              <span class="caption">Python</span>
+              <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">14 Projects</div>
+              </div>
+            </div>
+            <div class="progress-wrapper wow fadeInUp">
+              <span class="caption">HTML/CSS/JS</span>
+              <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">6 Projects</div>
+              </div>
+            </div>
+            <div class="progress-wrapper wow fadeInUp">
+              <span class="caption">Java</span>
+              <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <!-- <div class="progress-wrapper wow fadeInUp">
               <span class="caption">Phyton</span>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">90%</div>
+              <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">90%</div>
               </div>
+            </div> -->
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <!-- end skills page -->
+
+    <!-- Projects (From Blog Template) -->
+  <div class="vg-page page-blog" id="blog">
+    <div class="container">
+      <div class="text-center">
+        <div class="badge badge-subhead wow fadeInUp">Projects</div>
+      </div>
+      <h1 class="text-center fw-normal wow fadeInUp">Recently Added</h1>
+      <div class="row post-grid">
+        <div class="col-md-6 col-lg-4 wow fadeInUp">
+          <div class="card">
+            <div class="img-place">
+              <img src="../assets/img/work/work-9.jpg" alt="">
+            </div>
+            <div class="caption">
+              <a href="javascript:void(0)" class="post-category">Technology</a>
+              <a href="" class="post-title">Invision design forward fund</a>
+              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="px-lg-3">
-            <h4 class="wow fadeInUp">Design Skills</h4>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">UI / UX Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 92%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">92%</div>
-              </div>
+        <div class="col-md-6 col-lg-4 wow fadeInUp">
+          <div class="card">
+            <div class="img-place">
+              <img src="../assets/img/work/work-6.jpg" alt="">
             </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Web Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">99%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Logo Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 79%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">79%</div>
-              </div>
+            <div class="caption">
+              <a href="javascript:void(0)" class="post-category">Business</a>
+              <a href="#" class="post-title">Announcing a plan for small teams</a>
+              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
             </div>
           </div>
+        </div>
+        <div class="col-md-6 col-lg-4 wow fadeInUp">
+          <div class="card">
+            <div class="img-place">
+              <img src="../assets/img/work/work-1.jpg" alt="">
+            </div>
+            <div class="caption">
+              <a href="javascript:void(0)" class="post-category">Design</a>
+              <a href="#" class="post-title">5 basic tips for illustrating</a>
+              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-center py-3 wow fadeInUp">
+          <a href="projects.html" class="btn btn-theme">See All Post</a>
         </div>
       </div>
     </div>
+  </div> 
+  <!-- End blog -->
+
+
+  <div class="vg-page page-about" id="about">
     <div class="container pt-5">
       <div class="row">
         <div class="col-md-6 wow fadeInRight">
@@ -252,8 +315,9 @@
         </div>
       </div>
     </div>
-  </div>
-  
+  </div> 
+
+<!--   
   <div class="vg-page page-service">
     <div class="container">
       <div class="text-center wow fadeInUp">
@@ -308,8 +372,10 @@
       </div>
     </div>
   </div>
-  
-  <div class="vg-page page-funfact" style="background-image: url(../assets/img/bg_banner.jpg);">
+   -->
+
+  <!-- Statistics -->
+  <!-- <div class="vg-page page-funfact" style="background-image: url(../assets/img/bg_banner.jpg);">
     <div class="container">
       <div class="row section-counter">
         <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
@@ -330,10 +396,72 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <!-- End statistics -->
   
+  <!-- Testimonial -->
+  <!-- <div class="vg-page page-testimonial">
+    <div class="container">
+      <h1 class="text-center fw-normal wow fadeInUp">What Clients are Saying</h1>
+      <div class="row justify-content-center mt-5 wow fadeInUp">
+        <div class="col-md-9">
+          <div class="owl-carousel testi-carousel">
+            <div class="item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="img-place">
+                    <img src="../assets/img/testimonials/testimonials_1.jpg" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="caption">
+                    <div class="testi-content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered</div>
+                    <div class="testi-info">
+                      <div class="thumb-profile">
+                        <img src="../assets/img/testimonials/testimonials_1.jpg" alt="">
+                      </div>
+                      <div class="tagline">
+                        <h5 class="mb-0">Satria Nugraha</h5>
+                        <span class="text-muted">CEO Nutshell</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="img-place">
+                    <img src="../assets/img/testimonials/testimonials_2.jpg" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="caption">
+                    <div class="testi-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe natus expedita ab facilis ut, animi explicabo amet. Voluptatibus possimus iste enim, doloremque, fugiat accusamus nisi optio fugit ratione expedita harum?</div>
+                    <div class="testi-info">
+                      <div class="thumb-profile">
+                        <img src="../assets/img/testimonials/testimonials_2.jpg" alt="">
+                      </div>
+                      <div class="tagline">
+                        <h5 class="mb-0">Selena Arrini</h5>
+                        <span class="text-muted">CEO BigTree</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  -->
+  <!-- End testimonial -->
+
+
   <!-- Portfolio page -->
-  <div class="vg-page page-portfolio" id="portfolio">
+<!--   <div class="vg-page page-portfolio" id="portfolio">
     <div class="container">
       <div class="text-center wow fadeInUp">
         <div class="badge badge-subhead">Portfolio</div>
@@ -404,74 +532,16 @@
             </div>
           </div>
         </div>
-      </div> <!-- End gridder -->
+      </div> 
       <div class="text-center wow fadeInUp">
         <a href="javascript:void(0)" class="btn btn-theme">Load More</a>
       </div>
     </div>
-  </div> <!-- End Portfolio page -->
-  
-  <!-- Testimonial -->
-  <div class="vg-page page-testimonial">
-    <div class="container">
-      <h1 class="text-center fw-normal wow fadeInUp">What Clients are Saying</h1>
-      <div class="row justify-content-center mt-5 wow fadeInUp">
-        <div class="col-md-9">
-          <div class="owl-carousel testi-carousel">
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="img-place">
-                    <img src="../assets/img/testimonials/testimonials_1.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="caption">
-                    <div class="testi-content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered</div>
-                    <div class="testi-info">
-                      <div class="thumb-profile">
-                        <img src="../assets/img/testimonials/testimonials_1.jpg" alt="">
-                      </div>
-                      <div class="tagline">
-                        <h5 class="mb-0">Satria Nugraha</h5>
-                        <span class="text-muted">CEO Nutshell</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="img-place">
-                    <img src="../assets/img/testimonials/testimonials_2.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="caption">
-                    <div class="testi-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe natus expedita ab facilis ut, animi explicabo amet. Voluptatibus possimus iste enim, doloremque, fugiat accusamus nisi optio fugit ratione expedita harum?</div>
-                    <div class="testi-info">
-                      <div class="thumb-profile">
-                        <img src="../assets/img/testimonials/testimonials_2.jpg" alt="">
-                      </div>
-                      <div class="tagline">
-                        <h5 class="mb-0">Selena Arrini</h5>
-                        <span class="text-muted">CEO BigTree</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End testimonial -->
+  </div> -->
+   <!-- End Portfolio page -->
   
   <!-- Client -->
-  <div class="vg-page page-client">
+  <!-- <div class="vg-page page-client">
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-lg-4 col-xl-3 item">
@@ -518,58 +588,9 @@
         </div>
       </div>
     </div>
-  </div> <!-- End client -->
+  </div>  -->
+  <!-- End client -->
   
-  <!-- Blog -->
-  <div class="vg-page page-blog" id="blog">
-    <div class="container">
-      <div class="text-center">
-        <div class="badge badge-subhead wow fadeInUp">Blog</div>
-      </div>
-      <h1 class="text-center fw-normal wow fadeInUp">Latest Post</h1>
-      <div class="row post-grid">
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="../assets/img/work/work-9.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category">Technology</a>
-              <a href="#" class="post-title">Invision design forward fund</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="../assets/img/work/work-6.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category">Business</a>
-              <a href="#" class="post-title">Announcing a plan for small teams</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="../assets/img/work/work-1.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category">Design</a>
-              <a href="#" class="post-title">5 basic tips for illustrating</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 text-center py-3 wow fadeInUp">
-          <a href="blog-topbar.html" class="btn btn-theme">See All Post</a>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End blog -->
   
   <!-- Contact -->
   <div class="vg-page page-contact" id="contact">
@@ -656,7 +677,7 @@
           </form>
         </div>
         <div class="col-12">
-          <p class="text-center mb-0 mt-4">Copyright &copy;2020. All right reserved | This template is made with <span class="ti-heart fg-theme-red"></span> by <a href="https://www.macodeid.com/">MACode ID</a></p>
+          <p class="text-center mb-0 mt-4">Copyright &copy;2020. All right reserved | Source: <a href="https://www.macodeid.com/">MACode ID</a></p>
         </div>
       </div>
     </div>
