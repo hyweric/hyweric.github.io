@@ -29,13 +29,16 @@
   <link rel="stylesheet" type="text/css" href="../assets/css/virtual.css">
   
   <link rel="stylesheet" type="text/css" href="../assets/css/topbar.virtual.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
 </head>
 <body class="theme-red">
   
-  <!-- Back to top button -->
-  <div class="btn-back_to_top">
+  <!-- Back to top -->
+  <!-- <div class="btn-back_to_top">
     <span class="ti-arrow-up"></span>
-  </div>
+  </div> -->
   
   <!-- Setting button -->
   <div class="config">
@@ -43,14 +46,6 @@
       <!-- Settings -->
       <div class="d-block">
         <button class="btn btn-fab btn-sm" id="sideel" title="Settings"><span class="ti-settings"></span></button>
-      </div>
-      <!-- Puschase -->
-      <div class="d-block">
-        <a href="https://macodeid.com/projects/virtual-folio/" class="btn btn-fab btn-sm" title="Get this template" data-toggle="tooltip" data-placement="left"><span class="ti-download"></span></a>
-      </div>
-      <!-- Help -->
-      <div class="d-block">
-        <a href="#" class="btn btn-fab btn-sm" title="Help" data-toggle="tooltip" data-placement="left"><span class="ti-help"></span></a>
       </div>
     </div>
     <div class="set-menu">
@@ -62,12 +57,13 @@
         <span class="color-item bg-theme-orange" data-class="theme-orange"></span>
         <span class="color-item bg-theme-purple" data-class="theme-purple"></span>
       </div>
-      <select class="custom-select" id="change-page">
+      <select class="custom-select d-block my-2" id="change-page">
         <option value="">Choose Page</option>
-        <option value="index">Topbar</option>
-        <option value="blog-topbar">Blog (Topbar)</option>
-        <option value="index-2">Minibar</option>
-        <option value="blog-minibar">Blog (Minibar)</option>
+        <!-- <option value="index">Home</option> -->
+        <option value="projects">Projects</option> <!--Top Bar-->
+        <!-- <option value="experiences">Experiences</option> -->
+        <!-- <option value="index-2">Minibar</option>
+        <option value="blog-minibar">Blog (Minibar)</option> -->
       </select>
     </div>
   </div>
@@ -88,7 +84,7 @@
             <a href="" class="nav-link">About</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Portofolio</a>
+            <a href="" class="nav-link">Portfolio</a>
           </li>
           <li class="nav-item active">
             <a href="" class="nav-link">Blog</a>
