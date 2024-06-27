@@ -4360,6 +4360,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;

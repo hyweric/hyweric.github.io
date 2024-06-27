@@ -5,6 +5,15 @@
   border-bottom: 2px dashed #9FA2AB;
 }
 
+.straight-line-divider{
+  display: block;
+  padding: 0px;
+  margin: 0px 0px;
+  margin-bottom: 0px; 
+  width: 100%;
+  border-bottom: 2px solid #e7e7e7;
+}
+
 .badge-subhead {
   margin-bottom: 8px;
   padding: 10px 30px;
@@ -55,7 +64,8 @@
 .vg-page {
   position: relative;
   display: block;
-  padding: 80px 0;
+  margin-bottom: 0px; /* space below the section */
+  padding: 50px 0; /* Controls how much bkgnd is shown */
   width: 100%;
   overflow: hidden;
 }

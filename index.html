@@ -35,25 +35,68 @@
 </head>
 <body class="theme-red">
   <!-- Buttons (settings) -->
-   <div id = "buttons"></div>
-   <script>
-      $(function(){
-        $("#buttons").load("shared_elements/buttons.html"); 
-      });
-    </script>
+  <div class="config">
+    <div class="template-config">
+      <!-- Settings -->
+      <div class="d-block">
+        <button class="btn btn-fab btn-sm" id="sideel" title="Settings"><span class="ti-settings"></span></button>
+      </div>
+    </div>
+    <div class="set-menu">
+      <p>Select Color</p>
+      <div class="color-bar" data-toggle="selected">
+        <span class="color-item bg-theme-red selected" data-class="theme-red"></span>
+        <span class="color-item bg-theme-blue" data-class="theme-blue"></span>
+        <span class="color-item bg-theme-green" data-class="theme-green"></span>
+        <span class="color-item bg-theme-orange" data-class="theme-orange"></span>
+        <span class="color-item bg-theme-purple" data-class="theme-purple"></span>
+      </div>
+      <select class="custom-select d-block my-2" id="change-page">
+        <option value="">Choose Page</option>
+        <!-- <option value="index">Home</option> -->
+        <option value="projects">Projects</option> <!--Top Bar-->
+        <!-- <option value="experiences">Experiences</option> -->
+        <!-- <option value="index-2">Minibar</option>
+        <option value="blog-minibar">Blog (Minibar)</option> -->
+      </select>
+    </div>
+  </div>
   
   <!-- <div class="vg-page page-home" id="home" style="background-image: url(../assets/img/bg_image_1.jpg)"> -->
-  <div class="vg-page page-home" style="background-image: url(../assets/docs/randomdogimg.png)">
+  <div class="vg-page page-home" style="background-image: url(../assets/img/bg_image_1.jpg); padding: 130px;">
     <!-- Topbar -->
     <div id="topbar" class="navbar navbar-expand-lg navbar-dark sticky" data-offset="00"></div>
     <script> 
-    $(function(){
-      $("#topbar").load("shared_elements/topbar.html"); 
-    });
-    </script> 
-    <!-- End of Topbar  -->
+      $(function(){
+        $("#topbar").load("shared_elements/topbar-index.html", function() {
+          initializeScrollingAnimation();
+        });
+      });
+      
+      function initializeScrollingAnimation() {
+      $('[data-animate="scrolling"]').on('click', function(event) {
+        event.preventDefault();
+        var target = $(this.getAttribute('href'));
+        var offsetAdjustment = 0; // Default offset adjustment is 0
 
-    <div class="vg-page page-about" id="about">
+        // adjust scrolling for projects (blog) section
+        if (this.getAttribute('href') === '#blog') {
+          offsetAdjustment = 100; 
+        } else if (this.getAttribute('href') === '#about') {
+          offsetAdjustment = 130; 
+        }
+
+        if (target.length) {
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - offsetAdjustment
+          }, 1000);
+        }
+      });
+    }
+      </script>
+      
+    <!-- End of Topbar  -->
+    <div class="vg-page page-about" style = "border-top-left-radius: 20px; border-top-right-radius: 20px;" id="about"> <!-- rounds the top 2 corners -->
       <div class="container py-5">
         <div class="row">
           <div class="col-lg-4 py-3">
@@ -64,7 +107,7 @@
           <div class="col-lg-6 offset-lg-1 wow fadeInRight">
             <h1 class="fw-light">Eric Hou</h1>
             <h5 class="fg-theme mb-3">Student and Robotics Enthusiast</h5>
-            <p class="text-muted">Hello! I'm a 16 year old student attending Mission San Jose High School. Beyond my studies, I enjoy working on projects on the side, whether its hardware, software, or both! Check out some of my projects below. </p>
+            <p class="text-muted">Hello! I'm a 16 year old student attending Mission San Jose High School. Beyond my studies, I enjoy working on projects on the side, whether its mechanical, software, or both! Check out some of my projects below. </p>
             <ul class="theme-list">
               <li><b>Located in:</b> Fremont, CA</li>
               <li><b>Skills:</b> Mechanical Design, Full Stack Development, Mechatronics, AI</li> 
@@ -81,15 +124,15 @@
       <div href="#about" data-animate="scrolling" class="badge nav-link" style="cursor: pointer;">Student and Robotics Enthusiast</div>
     </div> -->
     <!-- <div class="floating-button"><span class="ti-mouse"></span></div> -->
-  </div>
-  
+  </div>  
+  <div class="straight-line-divider"></div>
     <!-- skills page -->
     <div class="container py-5" style="padding:100">
-      <h1 class="text-center fw-normal wow fadeIn">Skills</h1>
+      <h1 class="text-center fw-normal wow fadeIn">Some things that I can do...</h1>
       <div class="row py-3">
         <div class="col-md-6">
           <div class="px-lg-3">
-            <h4 class="wow fadeInUp">Hardware</h4>
+            <h4 class="wow fadeInUp">Mechanical</h4>
             <div class="progress-wrapper wow fadeInUp">
               <span class="caption">CAD (Autodesk Fusion 360/Onshape)</span>
               <div class="progress">
@@ -150,13 +193,14 @@
   </div>
     <!-- end skills page -->
 
+    <div class="straight-line-divider" ></div>
     <!-- Projects (From Blog Template) -->
   <div class="vg-page page-blog" id="blog">
-    <div class="container">
-      <div class="text-center">
+    <div class="container" >
+      <!-- <div class="text-center">
         <div class="badge badge-subhead wow fadeInUp">Projects</div>
-      </div>
-      <h1 class="text-center fw-normal wow fadeInUp">Recently Added</h1>
+      </div> -->
+      <h1 class="text-center fw-normal wow fadeInUp">Recent Projects</h1>
       <div class="row post-grid">
         <div class="col-md-6 col-lg-4 wow fadeInUp">
           <div class="card">
@@ -202,12 +246,12 @@
   </div> 
   <!-- End blog -->
 
-
+  <div class = "straight-line-divider"></div>
   <div class="vg-page page-about" id="experiences">
     <div class="container pt-5">
-      <div class="text-center wow fadeInRight" style = "margin-bottom: 5rem;">
+      <!-- <div class="text-center wow fadeInRight" style = "margin-bottom: 5rem;">
         <div class="badge badge-subhead">Experiences</div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="col-md-6 wow fadeInRight">
           <h2 class="fw-normal">Education</h2>
@@ -270,43 +314,14 @@
       </div>
     </div>
   </div> 
-  
+  <div class="straight-line-divider"></div>
   <!-- Contact -->
-  <div class="vg-page page-contact" id="contact">
-    <div class="container-fluid">
-      <!-- <div class="text-center wow fadeInUp">
-        <div class="badge badge-subhead">Contact</div>
-      </div> -->
-      <h1 class="text-center fw-normal wow fadeInUp">Get in Touch</h1>
-      <div class="row py-5">
-        <div class="col-lg-7 px-0 pr-lg-3 wow zoomIn">
-          <div class="vg-maps">
-            <!-- <div id="google-maps" style="width: 100%; height: 100%;"></div> -->
-            <img src="../assets/docs/randomdogimg.png" style="width: 100%; height: 100%;" alt="Image">
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <!-- formspree -->
-          <form class="vg-contact-form" action="https://formspree.io/f/mgeggrzw" method="POST">
-            <div class="form-row">
-              <div class="col-12 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="name" placeholder="Your Name">
-              </div>
-              <div class="col-12 mt-3 wow fadeInUp">
-                <input class="form-control" type="email" name="email" placeholder="Email Address">
-              </div>
-              <div class="col-12 mt-3 wow fadeInUp">
-                <textarea class="form-control" name="message" rows="6" placeholder="Enter message here.."></textarea>
-              </div>
-              <div class="col-12 mt-3 wow fadeInUp">
-                <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">Send Message</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="vg-page page-contact" id="contact"> </div>
+  <script>
+    $(function(){
+      $("#contact").load("shared_elements/contact.html"); 
+    });
+  </script>
   <!-- End Contact -->
   
   <!-- Footer -->
