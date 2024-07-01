@@ -64,8 +64,9 @@
 .vg-page {
   position: relative;
   display: block;
-  margin-bottom: 0px; /* space below the section */
-  padding: 50px 0; /* Controls how much bkgnd is shown */
+  margin-bottom: 0px;
+  /* Controls how much bkgnd is shown */
+  padding: 50px 0;
   width: 100%;
   overflow: hidden;
 }
@@ -149,7 +150,9 @@
 
 
 .page-about {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); 
+  /* controls opacity of first section */
+
 }
 
 .page-about .img-place {
