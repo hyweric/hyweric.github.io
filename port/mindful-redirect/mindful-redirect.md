@@ -1,7 +1,7 @@
 ---
 <div class="image-column-container" style="max-width: none; margin-bottom:20px;">
     <div class="image-column">
-        <strong>Project Status:</strong> Ongoing
+        <strong>Project Status:</strong> Completed
     </div>
     <div class="image-column">
         <strong>Project Type:</strong> Chrome Extension
