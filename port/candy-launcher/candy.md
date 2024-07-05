@@ -20,23 +20,29 @@ The project was featured within 2024 AAPT (American Association of Physics Teach
 
 ### Catapult Launcher (V2) with Golf Ball
 ---
-<img src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/secure-launch.gif" alt="secure-launch.gif" width = "80%">
+<video width="80%" autoplay loop> <!-- add controls to control it-->
+    <source src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/tracking.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 ### Spring Launcher (V1) with Candy
 ---
 
 <div class="image-column-container" style = "padding: 0px; margin:0px;">
-    <div class="image-column" style="flex-basis: 50%;">
-        <img src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/firstlauncher.gif" alt="firstlauncher.gif">
-        <p>First of the two build iterations of the design, before I realized that the "Candy Launcher" Project required launching a golf ball.</p>
+    <div class="image-column-container" style="max-width: none; margin-bottom:20px;">
+        <div class="image-column">
+            <video width="70%" autoplay loop muted> <!-- add controls to control it-->
+                <source src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/firstlauncher.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>First of the two build iterations of the design, before I realized that the "Candy Launcher" Project required launching a golf ball.</p>
+        </div>
+        <div class="image-column">
+            <iframe class="pdf" src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/cropped-drawing.pdf"></iframe>
+            <p> Version One Design Sketch<p>
+        </div>
     </div>
-    <iframe class="pdf" 
-                src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/cropped-drawing.pdf"
-            >
-        </iframe>
 </div>
-
---- 
 
 ## Submitted Lab Report
 
@@ -49,6 +55,6 @@ The project was featured within 2024 AAPT (American Association of Physics Teach
 
 Another project I made for physics class which generates data points around a function. It can be used to generate anticipated data values based on a prediction or visualize the trajectory of points, such as tracking the movement of a projectile through the air. The data points can be exported as a CSV or TXT.
 
-- [Data Generator Website](http://datagen.csproject.org)
+- [Data Generator Website](http://datagen.csproject.org) (Build time may take up to a minute)
 
 <img src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/generatedata.png" alt="generatedata.png">
