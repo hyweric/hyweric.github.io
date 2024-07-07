@@ -1,3 +1,9 @@
+#img-project {
+  width: 320px;
+  height: 250px;
+  object-fit: cover;
+}
+
 .divider {
   display: block;
   margin: -5px 0 16px 0;

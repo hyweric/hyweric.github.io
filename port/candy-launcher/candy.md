@@ -20,31 +20,39 @@ The project was featured within 2024 AAPT (American Association of Physics Teach
 
 ### Catapult Launcher (V2) with Golf Ball
 ---
-<video width="80%" autoplay loop> <!-- add controls to control it-->
-    <source src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/tracking.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+<div class="image-column-container">
+    <div class="image-column" style = "flex:5">
+        <video width="100%" autoplay loop> <!-- add controls to control it-->
+            <source src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/tracking.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="vertical-divider"> </div>
+    <div class="image-column"  style = "flex:2">
+        <img src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/candylaunchertrans.png" alt="generatedata.png">
+    </div>
+</div>
 
 ### Spring Launcher (V1) with Candy
 ---
 
-<div class="image-column-container" style = "padding: 0px; margin:0px;">
-    <div class="image-column-container" style="max-width: none; margin-bottom:20px;">
-        <div class="image-column">
-            <video width="70%" autoplay loop muted> <!-- add controls to control it-->
+<div class="image-column-container">
+    <div class="image-column-container">
+        <div class="image-column" style = "flex:2">
+            <video width="100%" autoplay loop muted > <!-- add controls to control it-->
                 <source src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/firstlauncher.mov" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <p>First of the two build iterations of the design, before I realized that the "Candy Launcher" Project required launching a golf ball.</p>
         </div>
-        <div class="image-column">
+        <div class="image-column" style = "flex:3">
             <iframe class="pdf" src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/cropped-drawing.pdf"></iframe>
             <p> Version One Design Sketch<p>
         </div>
     </div>
 </div>
 
-## Submitted Lab Report
+## Lab Report
 
 <iframe class="pdf"  style = "width: 100%"
                 src="Candy%20Launcher%20Project%202e0cc66c2e9b4f988038c8952add3650/Candy_Launcher_Lab_viv_eric.pdf">

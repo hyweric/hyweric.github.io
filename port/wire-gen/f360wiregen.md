@@ -46,9 +46,9 @@ Creating wires has always been a tedious process in Fusion 360, tediously tracin
 </div>
 
 
-## Code Explanation:
+## How it works:
 
-The script was written in python and used the Fusion 360 API. 
+Written in python using Fusion-360 API. 
 
 How it works: 
 

@@ -4,7 +4,7 @@
         <strong>Project Status:</strong> Completed
     </div>
     <div class="image-column">
-        <strong>Project Type:</strong> Chrome Extension
+        <strong>Project Type:</strong> Personal Tool
     </div>
     <div class="image-column">
         <strong>Created on:</strong> Apr 1, 2024
