@@ -1,4 +1,4 @@
-fetch('ftc.md')
+fetch('test.md')
     .then(response => response.text())
     .then(data => {
         document.getElementById('content').innerHTML = marked.parse(data);
