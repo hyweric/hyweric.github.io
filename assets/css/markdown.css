@@ -29,6 +29,11 @@
     height: auto;
 }
 
+#divider{
+    border-top: 1px solid #e4e4e4;
+    margin: 20px 0;
+}
+
 #project-title {
     font-size: 2.3rem; 
     color: #333;
