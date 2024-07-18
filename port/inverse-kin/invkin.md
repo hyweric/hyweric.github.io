@@ -14,7 +14,7 @@
 ---
 **Links:** 
 
-- [**Website**](https://inverse-kinematics.onrender.com/) (Build Time may take up to 1 minute since the website is hosted on a free Render plan.)
+- [**Website**](https://inverse-kin-8a5e0cc0768d.herokuapp.com/) (Hosted on Heroku Github Student Plan.)
 
 - [**Github**](https://github.com/hyweric/inverseKinematics)
 
