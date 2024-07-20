@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Climbing Robot</title> 
+  <!-- Minimal Github Markdown styling -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <!-- Only works with network -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <link rel="shortcut icon" href="../assets/croppedimg.png" type="image/png">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/maicons.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/minibar.virtual.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/topbar.virtual.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/virtual.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/topbar.virtual.css">
+  <!-- Markdown Page -->
+  <link rel="stylesheet" type="text/css" href="../../assets/css/markdown.css">
+</head>
+<body>
+  <div id="topbar" class="navbar navbar-expand-lg navbar-dark bg-dark"></div>
+
+  <script> 
+    $(document).ready(function(){
+      $("#topbar").load("/shared_elements/topbar.html", function() {
+      });
+    });
+  </script>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="back-button">Back</button>
+  <script> 
+  document.querySelector('.back-button').addEventListener('click', function() {
+    window.history.back();
+  });
+  </script>
+    </div>
+    </div>
+    <div class="col-md-6"></div>
+      <h1 id="project-title">Climbing Robot</h1>
+    </div>
+  </div>
+  <div class="markdown-body" id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="climber.js"></script>
+</body>
+</html>

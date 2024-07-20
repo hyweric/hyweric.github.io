@@ -28,8 +28,8 @@ Personal Websites are becoming more widespread, as a critical part of personal b
 
 - Project built as a AP CS A final project and Hackathon Submission.
 
-## Demo
 
-<iframe width="750rem" height="415rem" src="https://www.youtube.com/embed/DvASYHd9Vt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+### Try it:
+<embed src="https://portfolio-pro-7aaec6e3b25a.herokuapp.com/" style="width:100%; height: 50vw;">
 
 ---
