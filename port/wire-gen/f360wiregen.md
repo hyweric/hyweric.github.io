@@ -35,11 +35,11 @@ Creating wires has always been a tedious process in Fusion 360, tediously tracin
 
 <div class="image-column-container">
     <div class="image-column">
-        <p>650+ Downloads, 11 Countries in just <strong>Three Months</strong></p>
-        <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/Screenshot_2024-06-27_at_11.27.30_PM.png" alt="Screenshot 2024-06-27 at 11.27.30 PM">
+        <p>800+ Downloads, 11 Countries less than <strong>Four Months</strong> of release</p>
+        <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/7-22.png" alt="">
     </div>
     <div class="image-column">
-        <p>Featured On Autodesk App Store Front Page</p>
+        <p>Featured On Autodesk App Store Front Page for 3 Months</p>
         <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/Untitled.png" alt="Untitled">
     </div>
 </div>
