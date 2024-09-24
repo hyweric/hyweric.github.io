@@ -15,16 +15,77 @@
 
 ### Synopsis:
 
-A robot that is able to climb flat surfaces using vacuums. Partially funded my friend Ray 💚
+A robot designed to climb vertical surfaces using suction. Research paper on 3D motion forthcoming. All technical work completed independently, with partial funding from other sources and grants.
 
-## Progress Log 
-- The project is constantly moving forward so I'm logging on Notion for easy updating.
+# Working Demo 
 
-<iframe src="https://v2-embednotion.com/f9a22e59c6414a14abf6eac98ace5b37" style="width: 100%; height: 500px; border: 2px solid #ccc; border-radius: 10px; padding: none;"></iframe>
+<div class="image-column-container">
+    <div class="image-column" style="flex: 2;">
+        <h3>Step on vertical plane (Rotated Camera) 9/24</h3>
+        <video width="80%" autoplay muted loop>
+            <source src="climber-vids/dogclip2.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="image-column" style="flex: 2;">
+        <h3>Walking Sequence (Upside Down for Visibility) 9/24</h3>
+        <video width="80%" autoplay muted loop>
+             <source src="climber-vids/dogclip1.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
 
-<!-- 
-```xml
-<iframe src="https://stickanimator.onrender.com/" width="100%" height="300">
-  <p>Your browser does not support iframes.</p>
-</iframe>
-``` -->
+
+<div class="image-column-container">
+    <div class="image-column" style="flex: 3;">
+        <h3>Plane Transition Motion 9/24</h3>
+        <video width="80%" autoplay muted loop>
+            <source src="climber-vids/dogclip3.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="image-column" style="flex: 2;">
+        <h3>CAD Diagram w/ Marking 7/24</h3>
+        <img src="climber-vids/dogclip4.png" alt="Untitled">
+    </div>
+</div>
+
+# First Signs of Walking
+
+<div class="image-column-container">
+    <div class="image-column" style="flex: 2;">
+        <h3>Funny Fail - First Walk Test 8/24 </h3>
+        <video width="80%" autoplay muted loop>
+            <source src="climber-vids/dogclip5.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h4>legs stayed planted -> couldn't overcome the friction</h4>
+    </div>
+    <div class="image-column" style="flex: 2;">
+        <h3>Single Leg Implemented Simulation 7/24 </h3>
+        <video width="80%" autoplay muted loop>
+             <source src="climber-vids/dogclip6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h4>Sin-Step with Servo Smoothing</h4>
+    </div>
+</div>
+
+---
+# Inverse Kinematics Test
+
+<div class="image-column-container">
+    <div class="image-column" style="flex: 2;">
+        <video width="80%" autoplay muted loop>
+            <source src="climber-vids/dogclip7.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="image-column" style="flex: 1;">
+        <h3>Calculations</h3>
+        <img src="climber-vids/dogclip8.png" alt="Untitled">
+        <!-- <img src="climber-vids/dogclip9.jpeg" alt="Untitled"> -->
+    </div>
+</div>
+
