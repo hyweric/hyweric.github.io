@@ -15,7 +15,7 @@
 
 ### Synopsis:
 
-A robot designed to climb vertical surfaces using suction. Research paper on 3D motion forthcoming. All technical work completed independently, with partial funding from other sources and grants.
+A robot designed to climb vertical surfaces using suction. Paper Accepted to IRC IEEE 2024. All hardware, electronics, software completed by me. Partial funding from partner and grants.
 
 # Working Demo 
 
@@ -55,12 +55,12 @@ A robot designed to climb vertical surfaces using suction. Research paper on 3D 
 
 <div class="image-column-container">
     <div class="image-column" style="flex: 2;">
-        <h3>Funny Fail - First Walk Test 8/24 </h3>
+        <h3> Baby Steps - First (Failed) Walk Test 8/24 </h3>
         <video width="80%" autoplay muted loop>
             <source src="climber-vids/dogclip5.mov" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <h4>legs stayed planted -> couldn't overcome the friction</h4>
+        <h4>Lesson: Feet can't stay planted on the ground => alternate in cycle</h4>
     </div>
     <div class="image-column" style="flex: 2;">
         <h3>Single Leg Implemented Simulation 7/24 </h3>
