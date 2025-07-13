@@ -25,29 +25,35 @@
 
 ### Synopsis:
 
-Creating wires has always been a tedious process in Fusion 360, tediously tracing spline points on 3D sketches. The Fusion 360 Wire Generator Add-on simplies wire creation in Fusion 360. Simply select start and end points, set parameters, and generate multiple spline options effortlessly. Choose the best fit for the wire and adjust spline points easily.
+Creating wires has always been a tedious process in Fusion 360, tediously tracing spline points on 3D sketches. The Fusion 360 Wire Generator Add-on simplifies wire creation in Fusion 360. Simply select start and end points, set parameters, and generate multiple spline options effortlessly. Choose the best fit for the wire and adjust spline points easily.
 
 ## Demo
 
 <iframe width="750rem" height="415rem" src="https://www.youtube.com/embed/lG5Qj6rc2vY?si=n3UTtvtNdkGCfIKm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Users / Impact:
-
-<div class="image-column-container">
-    <div class="image-column" style = "flex: 4">
-        <p>Featured On Autodesk App Store Front Page for 3 Months</p>
-        <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/Untitled.png" alt="Untitled">
+<div class="image-column-container" style="background-color:rgb(235, 252, 254); border: 2px solid black); padding: 8px 15px; border-radius: 5px; margin-bottom: 0;">
+    <div class="image-column" style="text-align: center; margin: 0;">
+        <p style="margin: 0;"><strong>2.0K+</strong> Downloads</p>
     </div>
-    <div class="image-column"  style = "flex: 3">
-        <p><strong>1.2K+</strong> Downloads, 11 Countries in less than <strong>6 Months</strong></p>
-        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 12px;">
-            <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/6-month.png" alt="">
-        </div>
-        <p><u>Downloads Graph 4 months</u></p>
-        <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/7-22.png" alt="">
+    <div class="image-column" style="text-align: center; margin: 0;">
+        <p style="margin: 0;">12+ Countries</p>
+    </div>
+    <div class="image-column" style="text-align: center; margin: 0;">
+        <p style="margin: 0;">5 ⭐️ Rating</p>
     </div>
 </div>
+<br>
 
+<img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/recent-downloads.png" alt="" style="border: 2px solid black; border-radius: 5px; padding: 5px">
+
+### Featured On Autodesk App Store Front Page for 3 Months
+
+<div style="display: flex; justify-content: left;">
+    <img src="Fusion%20360%20Wire%20Generator%20b0d26a36a8bc42ae80f501d29330f68f/Untitled.png" alt="Untitled" style="width: 60%;">
+</div>
+
+<br>
 
 ## How it works:
 
