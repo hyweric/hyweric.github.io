@@ -142,3 +142,71 @@ body {
 .back-button:not(:disabled):active {
     transform: translateY(.125rem);
 }
+
+/* Force containers to stay white in dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #ffffff !important;
+        color: #24292f !important;
+    }
+    
+    .row {
+        background-color: transparent !important;
+    }
+    
+    .col-md-6 {
+        background-color: transparent !important;
+    }
+    
+    .markdown-body {
+        background-color: #ffffff !important;
+        color: #24292f !important;
+    }
+    
+    .markdown-body * {
+        background-color: transparent !important;
+    }
+    
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6 {
+        color: #24292f !important;
+    }
+    
+    .markdown-body p,
+    .markdown-body li,
+    .markdown-body span,
+    .markdown-body div {
+        color: #24292f !important;
+    }
+    
+    .markdown-body code {
+        background-color: #f6f8fa !important;
+        color: #24292f !important;
+    }
+    
+    .markdown-body pre {
+        background-color: #f6f8fa !important;
+        color: #24292f !important;
+    }
+    
+    .markdown-body blockquote {
+        color: #57606a !important;
+        border-left-color: #d0d7de !important;
+    }
+    
+    .markdown-body a {
+        color: #0969da !important;
+    }
+    
+    .markdown-body table tr {
+        background-color: #ffffff !important;
+    }
+    
+    .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa !important;
+    }
+}
