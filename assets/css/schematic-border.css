@@ -1,0 +1,588 @@
+/* Simple Schematic Border Animation - Phase 1 */
+:root {
+  --glow-yellow: #000000;
+  --glow-yellow-bright: #ffffff;
+  --line-width: 1px;
+  --circle-size: 20px;
+  --border-height: 70%; /* Height where vertical lines stop */
+  --connection-y: 70%; /* Y position for horizontal connection */
+}
+
+/* Container for the schematic border elements */
+.schematic-border-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.schematic-border-container.active {
+  opacity: 1;
+}
+
+/* Left vertical border line */
+.schematic-border-left {
+  position: absolute;
+  left: calc(50% - 35vw);
+  top: 0;
+  width: var(--line-width);
+  height: var(--border-height);
+  background: linear-gradient(to bottom, 
+    var(--glow-yellow) 0%,
+    var(--glow-yellow-bright) 50%,
+    var(--glow-yellow) 100%);
+  box-shadow: 0 0 15px var(--glow-yellow);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: growDown 2s ease-out 0.5s forwards;
+}
+
+/* Right vertical border line */
+.schematic-border-right {
+  position: absolute;
+  right: calc(50% - 35vw);
+  top: 0;
+  width: var(--line-width);
+  height: var(--border-height);
+  background: linear-gradient(to bottom, 
+    var(--glow-yellow) 0%,
+    var(--glow-yellow-bright) 50%,
+    var(--glow-yellow) 100%);
+  box-shadow: 0 0 15px var(--glow-yellow);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: growDown 2s ease-out 0.7s forwards;
+}
+
+/* Left horizontal connector */
+.schematic-border-horizontal-left {
+  position: absolute;
+  left: calc(50% - 35vw);
+  top: var(--connection-y);
+  width: 35vw;
+  height: var(--line-width);
+  background: linear-gradient(to right, 
+    var(--glow-yellow) 0%,
+    var(--glow-yellow-bright) 50%,
+    var(--glow-yellow) 100%);
+  box-shadow: 0 0 15px var(--glow-yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: growRight 1.5s ease-out 2.7s forwards;
+}
+
+/* Right horizontal connector */
+.schematic-border-horizontal-right {
+  position: absolute;
+  right: calc(50% - 35vw);
+  top: var(--connection-y);
+  width: 35vw;
+  height: var(--line-width);
+  background: linear-gradient(to left, 
+    var(--glow-yellow) 0%,
+    var(--glow-yellow-bright) 50%,
+    var(--glow-yellow) 100%);
+  box-shadow: 0 0 15px var(--glow-yellow);
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: growLeft 1.5s ease-out 2.9s forwards;
+}
+
+/* Center vertical line (from connection point down) */
+.schematic-border-center {
+  position: absolute;
+  left: 50%;
+  top: var(--connection-y);
+  margin-left: calc(var(--line-width) / -2);
+  width: var(--line-width);
+  height: 25%;
+  background: linear-gradient(to bottom, 
+    var(--glow-yellow) 0%,
+    var(--glow-yellow-bright) 50%,
+    var(--glow-yellow) 100%);
+  box-shadow: 0 0 15px var(--glow-yellow);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: growDown 1.5s ease-out 4.5s forwards;
+}
+
+/* Junction circles at connection points */
+.schematic-border-junction-left {
+  position: absolute;
+  left: calc(50% - 35vw);
+  top: var(--connection-y);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  margin-left: calc(var(--circle-size) / -2);
+  margin-top: calc(var(--circle-size) / -2);
+  border: 2px solid var(--glow-yellow);
+  border-radius: 50%;
+  background: var(--glow-yellow);
+  box-shadow: 
+    0 0 15px var(--glow-yellow),
+    inset 0 0 10px var(--glow-yellow-bright);
+  opacity: 0;
+  transform: scale(0.5);
+  animation: circleAppear 0.5s ease-out 2.5s forwards;
+}
+
+.schematic-border-junction-right {
+  position: absolute;
+  right: calc(50% - 35vw);
+  top: var(--connection-y);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  margin-right: calc(var(--circle-size) / -2);
+  margin-top: calc(var(--circle-size) / -2);
+  border: 2px solid var(--glow-yellow);
+  border-radius: 50%;
+  background: var(--glow-yellow);
+  box-shadow: 
+    0 0 15px var(--glow-yellow),
+    inset 0 0 10px var(--glow-yellow-bright);
+  opacity: 0;
+  transform: scale(0.5);
+  animation: circleAppear 0.5s ease-out 2.7s forwards;
+}
+
+.schematic-border-junction-center {
+  position: absolute;
+  left: 50%;
+  top: var(--connection-y);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  margin-left: calc(var(--circle-size) / -2);
+  margin-top: calc(var(--circle-size) / -2);
+  border: 2px solid var(--glow-yellow);
+  border-radius: 50%;
+  background: var(--glow-yellow);
+  box-shadow: 
+    0 0 15px var(--glow-yellow),
+    inset 0 0 10px var(--glow-yellow-bright);
+  opacity: 0;
+  transform: scale(0.5);
+  animation: circleAppear 0.5s ease-out 4.3s forwards;
+}
+
+/* Bottom circle (final destination) */
+.schematic-border-circle {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  width: calc(var(--circle-size) * 1.2);
+  height: calc(var(--circle-size) * 1.2);
+  margin-left: calc(var(--circle-size) * 1.2 / -2);
+  border: 2px solid var(--glow-yellow);
+  border-radius: 50%;
+  background: var(--glow-yellow);
+  box-shadow: 
+    0 0 25px var(--glow-yellow),
+    inset 0 0 15px var(--glow-yellow-bright);
+  opacity: 0;
+  transform: scale(0.3);
+  animation: circleAppearFinal 1s ease-out 6s forwards;
+}
+
+/* Animations */
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes growRight {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes growLeft {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes circleAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes circleAppearFinal {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+    box-shadow: 
+      0 0 10px var(--glow-yellow),
+      inset 0 0 5px var(--glow-yellow-bright);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 
+      0 0 35px var(--glow-yellow-bright),
+      inset 0 0 20px var(--glow-yellow-bright);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 
+      0 0 25px var(--glow-yellow),
+      inset 0 0 15px var(--glow-yellow-bright);
+  }
+}
+
+/* Pulsing effect for the final circle */
+.schematic-border-circle.pulse {
+  animation: circleAppearFinal 1s ease-out 6s forwards, 
+             circlePulse 2s ease-in-out 7.5s infinite;
+}
+
+@keyframes circlePulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 25px var(--glow-yellow),
+      inset 0 0 15px var(--glow-yellow-bright);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px var(--glow-yellow-bright),
+      inset 0 0 25px var(--glow-yellow-bright);
+  }
+}
+
+/* Responsive container for profile content */
+.responsive-profile-container {
+  min-height: calc(100vh - 200px);
+  margin: -90px 20% 0 20%;
+  max-width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile-safe spacing to prevent touching */
+.mobile-safe-spacing {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.mobile-image-spacing {
+  padding-bottom: 2rem;
+}
+
+.mobile-text-spacing {
+  padding-top: 1.5rem;
+}
+
+/* Responsive text column to prevent intersection with lines */
+.responsive-text-column {
+  padding-right: 2rem;
+}
+
+/* Responsive image scaling */
+.img-place {
+  width: 100%;
+  max-width: none;
+}
+
+.img-place img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive text scaling */
+.responsive-text-column h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.responsive-text-column h5 {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.responsive-text-column p,
+.responsive-text-column li {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+.responsive-text-column .btn {
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .responsive-profile-container {
+    margin: -70px 18% 0 18%;
+    max-width: 64vw;
+  }
+  
+  .responsive-text-column {
+    padding-right: 1.5rem;
+  }
+  
+  .schematic-border-left {
+    left: calc(50% - 32vw);
+  }
+  
+  .schematic-border-right {
+    right: calc(50% - 32vw);
+  }
+  
+  .schematic-border-horizontal-left {
+    left: calc(50% - 32vw);
+    width: 32vw;
+  }
+  
+  .schematic-border-horizontal-right {
+    right: calc(50% - 32vw);
+    width: 32vw;
+  }
+  
+  .schematic-border-junction-left {
+    left: calc(50% - 32vw);
+  }
+  
+  .schematic-border-junction-right {
+    right: calc(50% - 32vw);
+  }
+}
+
+/* Enhanced tablet and large phone support */
+@media (max-width: 992px) {
+  .responsive-profile-container {
+    margin: -60px 10% 0 10% !important;
+    max-width: 80vw !important;
+    padding: 1.5rem;
+  }
+  
+  .mobile-safe-spacing {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  .mobile-image-spacing {
+    padding-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-text-spacing {
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .responsive-text-column {
+    padding-right: 0.5rem;
+    margin-top: 0;
+  }
+  
+  /* Adjust glowing lines for tablets */
+  .schematic-border-left {
+    left: calc(50% - 40vw);
+  }
+  
+  .schematic-border-right {
+    right: calc(50% - 40vw);
+  }
+  
+  .schematic-border-horizontal-left,
+  .schematic-border-horizontal-right {
+    width: 40vw;
+  }
+  
+  .schematic-border-horizontal-left {
+    left: calc(50% - 40vw);
+  }
+  
+  .schematic-border-horizontal-right {
+    right: calc(50% - 40vw);
+  }
+  
+  .schematic-border-junction-left {
+    left: calc(50% - 40vw);
+  }
+  
+  .schematic-border-junction-right {
+    right: calc(50% - 40vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-profile-container {
+    margin: -50px 5% 0 5% !important;
+    max-width: 90vw !important;
+    padding: 2rem 1rem;
+  }
+  
+  .mobile-safe-spacing {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  .mobile-image-spacing {
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mobile-text-spacing {
+    padding-top: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .responsive-text-column {
+    padding-right: 0;
+    margin-top: 0;
+  }
+  
+  /* Push glowing lines further out on mobile */
+  .schematic-border-left {
+    left: calc(50% - 45vw);
+  }
+  
+  .schematic-border-right {
+    right: calc(50% - 45vw);
+  }
+  
+  .schematic-border-horizontal-left,
+  .schematic-border-horizontal-right {
+    width: 45vw;
+  }
+  
+  .schematic-border-horizontal-left {
+    left: calc(50% - 45vw);
+  }
+  
+  .schematic-border-horizontal-right {
+    right: calc(50% - 45vw);
+  }
+  
+  .schematic-border-junction-left {
+    left: calc(50% - 45vw);
+  }
+  
+  .schematic-border-junction-right {
+    right: calc(50% - 45vw);
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --line-width: 2px;
+    --circle-size: 16px;
+  }
+  
+  .responsive-profile-container {
+    margin: -30px 3% 0 3% !important;
+    max-width: 94vw !important;
+    padding: 2.5rem 1rem;
+  }
+  
+  .mobile-safe-spacing {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
+  .mobile-image-spacing {
+    padding-bottom: 3rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .mobile-text-spacing {
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+  }
+  
+  .responsive-text-column {
+    padding-right: 0;
+    margin-top: 0;
+  }
+  
+  /* Hide glowing lines on very small screens to prevent interference */
+  .schematic-border-left,
+  .schematic-border-right,
+  .schematic-border-horizontal-left,
+  .schematic-border-horizontal-right,
+  .schematic-border-junction-left,
+  .schematic-border-junction-right,
+  .schematic-border-center {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --line-width: 1px;
+    --circle-size: 12px;
+    --border-height: 60%;
+    --connection-y: 60%;
+  }
+  
+  .responsive-profile-container {
+    margin: -20px 2% 0 2% !important;
+    max-width: 96vw !important;
+    padding: 3rem 0.5rem;
+  }
+  
+  .mobile-safe-spacing {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .mobile-image-spacing {
+    padding-bottom: 3.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .mobile-text-spacing {
+    padding-top: 3rem;
+    margin-top: 2.5rem;
+  }
+  
+  .responsive-text-column {
+    padding-right: 0;
+    margin-top: 0;
+  }
+  
+  /* Completely hide glowing lines on tiny screens */
+  .schematic-border-container {
+    display: none !important;
+  }
+  
+  /* Ensure text is readable with increased line height */
+  .responsive-text-column p,
+  .responsive-text-column li {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  
+  /* Increase button padding for easier touch */
+  .responsive-text-column .btn {
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+}

@@ -28,11 +28,12 @@
  */
 
 :root {
-    --theme-red: #ef3724;
-    --theme-blue: #2960f7;
-    --theme-green: #8cc63f;
-    --theme-orange: #fd7e14;
-    --theme-purple: #6f42c1;
+    --theme-red: #000000;
+    --theme-blue: #000000;
+    --theme-green: #000000;
+    --theme-orange: #000000;
+    --theme-purple: #000000;
+    --theme-default: #000000;
 }
 
 /* Light */
@@ -62,12 +63,9 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* 
-    1. Basic
-*/
-
+/*  THIS IS WHERE TO CHANGE EVERYTHING FOR FONT */
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif; 
     font-weight: 400;
 }
 
@@ -100,7 +98,7 @@ body {
 }
 
 a:hover, a:active {
-    color: #2184f5;
+    color: #000000;
 }
 
 /* Image Responsive */
@@ -233,9 +231,9 @@ a:hover, a:active {
 }
 
 .social .social-link:hover {
-    background-color: #ddd;
+    background-color: #000000;
     color: #fff;
-    border-color: transparent;
+    border-color: #000000;
 }
 
 /* Back to top */
@@ -249,7 +247,7 @@ a:hover, a:active {
     text-align: center;
     font-size: 18px;
     border-radius: 50%;
-    background-color: #52565c;
+    background-color: #000000;
     color: #fff;
     visibility: hidden;
     cursor: pointer;
@@ -384,6 +382,185 @@ a:hover, a:active {
     color: #fff !important;
 }
 
+/* Override Bootstrap bg-dark to use pure black */
+.bg-dark {
+    background-color: #000000 !important;
+}
+
+a.bg-dark:hover, a.bg-dark:focus,
+button.bg-dark:hover,
+button.bg-dark:focus {
+    background-color: #333333 !important;
+}
+
+/* Schematic Background and Electrical Animation */
+.schematic-bg {
+    position: relative;
+    background-color: #000000;
+}
+
+.schematic-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        /* Horizontal lines */
+        linear-gradient(90deg, transparent 0%, transparent 48%, #333 49%, #333 51%, transparent 52%, transparent 100%),
+        linear-gradient(90deg, transparent 0%, transparent 23%, #333 24%, #333 26%, transparent 27%, transparent 100%),
+        linear-gradient(90deg, transparent 0%, transparent 73%, #333 74%, #333 76%, transparent 77%, transparent 100%),
+        /* Vertical lines */
+        linear-gradient(0deg, transparent 0%, transparent 28%, #333 29%, #333 31%, transparent 32%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, transparent 58%, #333 59%, #333 61%, transparent 62%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, transparent 83%, #333 84%, #333 86%, transparent 87%, transparent 100%);
+    background-size: 100px 100px;
+    opacity: 0.3;
+}
+
+.connection-point {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 60px;
+    z-index: 10;
+}
+
+.connector-top {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #333 0%, #666 100%);
+    position: relative;
+    border-radius: 2px;
+}
+
+.connector-top::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #333;
+    border: 2px solid #666;
+}
+
+.projects-section {
+    transition: opacity 0.3s ease;
+}
+
+.connector-bottom {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 60px;
+    background: linear-gradient(0deg, #333 0%, #666 100%);
+    border-radius: 2px;
+    z-index: 10;
+}
+
+.connector-bottom::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #333;
+    border: 2px solid #666;
+}
+
+.flash-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Electrical connection animation */
+.electrical-connection {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background: linear-gradient(180deg, #ffff00, #ffa500, #ffff00);
+    z-index: 15;
+    opacity: 0;
+    animation: electricalFlow 2s ease-in-out;
+}
+
+.electrical-spark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffff00 0%, #ffa500 50%, transparent 70%);
+    animation: sparkle 0.3s ease-out infinite alternate;
+}
+
+@keyframes electricalFlow {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        height: calc(100vh + 60px);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(0.8);
+        box-shadow: 0 0 10px #ffff00;
+    }
+    100% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px #ffa500, 0 0 30px #ffff00;
+    }
+}
+
+.flash-reveal {
+    animation: flashReveal 1s ease-out;
+}
+
+@keyframes flashReveal {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        background: radial-gradient(circle, rgba(255, 255, 0, 0.6) 0%, transparent 70%);
+        opacity: 1;
+    }
+    40% {
+        background: radial-gradient(circle, rgba(255, 255, 0, 0.3) 0%, transparent 70%);
+    }
+    100% {
+        background: none;
+        opacity: 0;
+    }
+}
+
 /* Social Color */
 .bg-facebook,
 .bg-hover-facebook:hover {
@@ -473,7 +650,7 @@ a:hover, a:active {
     height: 1.25rem;
     border: 2px solid #fff;
     background-color: #fff;
-    box-shadow: 0 0 0 2px #747474;
+    box-shadow: 0 0 0 2px #000000;
 }
 
 .progress,
@@ -483,7 +660,7 @@ a:hover, a:active {
 
 .progress-bar {
     font-size: 12px;
-    background-color: #747474;
+    background-color: #000000;
 }
 
 /* 
@@ -1364,63 +1541,79 @@ a:hover, a:active {
 }
 
 
-/* Theme Purple */
-.theme-purple .bg-theme {
-    background-color: #6f42c1 !important;
+/* Theme Black */
+.theme-black .bg-theme {
+    background-color: #000000 !important;
 }
 
-.theme-purple .fg-theme {
-    color: #6f42c1 !important;
+.theme-black .fg-theme {
+    color: #000000 !important;
 }
 
-.theme-purple .btn-theme {
-    background-color: #6f42c1;
+.theme-black .btn-theme {
+    background-color: #000000;
     color: #fff;
 }
 
-.theme-purple .btn-theme:hover {
-    background-color: #7b54c2;
+.theme-black .btn-theme:hover {
+    background-color: #333333;
     color: #fff;
 }
 
-.theme-purple .btn-theme:focus {
-    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #6f42c1;
+.theme-black .btn-theme:focus {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #000000;
 }
 
-.theme-purple .btn-theme-outline {
-    color: #6f42c1;
-    box-shadow: 0 0 0 2px #6f42c1;
+.theme-black .btn-theme-outline {
+    color: #000000;
+    box-shadow: 0 0 0 2px #000000;
 }
 
-.theme-purple .btn-theme-outline:hover {
-    background-color: #6f42c1;
+.theme-black .btn-theme-outline:hover {
+    background-color: #000000;
     color: #fff;
 }
 
-.theme-purple .btn-theme-outline:focus {
-    background-color: #6f42c1;
+.theme-black .btn-theme-outline:focus {
+    background-color: #000000;
     color: #fff;
-    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #6f42c1;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #000000;
 }
 
-.theme-purple .btn-fab {
-    background-color: #6f42c1;
-    color: #fff;
-}
-
-.theme-purple .btn-fab:hover {
-    background-color: #7b54c2;
+.theme-black .btn-fab {
+    background-color: #000000;
     color: #fff;
 }
 
-.theme-purple .progress {
-    box-shadow: 0 0 0 2px #6f42c1;
+.theme-black .btn-fab:hover {
+    background-color: #333333;
+    color: #fff;
 }
 
-.theme-purple .progress-bar {
-    background-color: #6f42c1;
+.theme-black .progress {
+    box-shadow: 0 0 0 2px #000000;
 }
 
-.theme-purple .theme-list li::before {
-    border-color: #6f42c1;
+.theme-black .progress-bar {
+    background-color: #000000;
+}
+
+.theme-black .theme-list li::before {
+    border-color: #000000;
+}
+
+/* Remove border from profile picture in black theme */
+.theme-black .page-about .img-place::before {
+    width: 300px;
+    height: 350px;
+    border-width: 2px;
+}
+
+/* Fix WOW.js jittery animations by hiding elements initially */
+.wow {
+    visibility: hidden;
+}
+
+.wow.animated {
+    visibility: visible;
 }

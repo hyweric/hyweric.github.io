@@ -33,39 +33,10 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 </head>
-<body class="theme-red">
+<body class="theme-black">
   
-  <!-- Back to top -->
-  <!-- <div class="btn-back_to_top">
-    <span class="ti-arrow-up"></span>
-  </div> -->
-  
-  <!-- Setting button -->
-  <div class="config">
-    <div class="template-config">
-      <!-- Settings -->
-      <div class="d-block">
-        <button class="btn btn-fab btn-sm" id="sideel" title="Settings"><span class="ti-settings"></span></button>
-      </div>
-    </div>
-    <div class="set-menu">
-      <p>Select Color</p>
-      <div class="color-bar" data-toggle="selected">
-        <span class="color-item bg-theme-red selected" data-class="theme-red"></span>
-        <span class="color-item bg-theme-blue" data-class="theme-blue"></span>
-        <span class="color-item bg-theme-green" data-class="theme-green"></span>
-        <span class="color-item bg-theme-orange" data-class="theme-orange"></span>
-        <span class="color-item bg-theme-purple" data-class="theme-purple"></span>
-      </div>
-      <select class="custom-select d-block my-2" id="change-page">
-        <option value="">Choose Page</option>
-        <option value="projects">Projects</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- Navbar -->
-  <div id="topbar" class="navbar navbar-expand-lg navbar-dark bg-dark"></div>
+  <!-- Navigation Bar -->
+  <nav id="topbar" class="navbar navbar-expand-lg navbar-dark sticky" data-offset="00" style="background-color: #000000; z-index: 1000; width: 100%; top: 0; left: 0;"></nav>
   
   <script> 
     $(function(){
@@ -74,10 +45,10 @@
     });
   </script>
   
-  <div class="vg-page page-blog">
+  <div class="vg-page page-blog" style="padding-top: 50px;">
     <div class="container">
-      <h1>Projects</h1>
-      <p>Here are some projects that I've worked on, ranging from things I find interesting to personal tools and school projects. </pd>
+      <h1 style="font-weight: normal;">Projects</h1>
+      <p>A collection of projects I’ve worked on, spanning personal tools, school projects, and personal interests. </pd>
       <!-- <div class="row widget-grid">
         <div class="col-lg-8">
           <div class="input-group py-2">
@@ -297,7 +268,20 @@
 
 <script src="../assets/js/google-maps.js"></script>
   
-<script src="../assets/js/topbar-virtual.js"></script>
+<!-- <script src="../assets/js/topbar-virtual.js"></script> -->
+
+<script>
+  $(document).ready(function(){
+    var wow = new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true,
+      live: true
+    });
+    wow.init();
+  });
+</script>
 
 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script> -->
   
