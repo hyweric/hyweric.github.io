@@ -3,7 +3,7 @@ class SchematicBorderController {
   constructor() {
     this.initialized = false;
     this.scrollAmount = 0;
-    this.maxScroll = 1200; // Increased to accommodate extended animation
+    this.maxScroll = 1300; // Doubled from 650 to slow down animation
     this.animationElements = [];
     this.animationComplete = false;
     this.scrollUnlocked = false;
@@ -84,15 +84,20 @@ class SchematicBorderController {
     bottomCircle.className = 'schematic-border-circle pulse';
     borderContainer.appendChild(bottomCircle);
 
-    // Create extended line from bottom circle
-    const extendedLine = document.createElement('div');
-    extendedLine.className = 'schematic-border-extended-line';
-    borderContainer.appendChild(extendedLine);
+    // Create electrical ground symbol (static, always visible)
+    const groundSymbol = document.createElement('div');
+    groundSymbol.className = 'schematic-border-ground';
+    borderContainer.appendChild(groundSymbol);
 
-    // Create arrow pointing to projects
-    const arrow = document.createElement('div');
-    arrow.className = 'schematic-border-arrow';
-    borderContainer.appendChild(arrow);
+    // Create second horizontal line for ground symbol
+    const groundLine2 = document.createElement('div');
+    groundLine2.className = 'schematic-border-ground-line2';
+    borderContainer.appendChild(groundLine2);
+
+    // Create third horizontal line for ground symbol
+    const groundLine3 = document.createElement('div');
+    groundLine3.className = 'schematic-border-ground-line3';
+    borderContainer.appendChild(groundLine3);
 
     // Add to the about section
     container.appendChild(borderContainer);
@@ -101,17 +106,16 @@ class SchematicBorderController {
     
     // Store references to animation elements
     this.animationElements = [
-      { element: leftBorder, startAt: 0, duration: 200 },
-      { element: rightBorder, startAt: 50, duration: 200 },
-      { element: leftJunction, startAt: 250, duration: 50 },
-      { element: rightJunction, startAt: 270, duration: 50 },
-      { element: leftHorizontal, startAt: 300, duration: 150 },
-      { element: rightHorizontal, startAt: 320, duration: 150 },
-      { element: centerJunction, startAt: 450, duration: 50 },
-      { element: centerVertical, startAt: 500, duration: 150 },
-      { element: bottomCircle, startAt: 650, duration: 100 },
-      { element: extendedLine, startAt: 800, duration: 200 },
-      { element: arrow, startAt: 1000, duration: 100 }
+      { element: leftBorder, startAt: 0, duration: 400 }, // Doubled
+      { element: rightBorder, startAt: 100, duration: 400 }, // Doubled
+      { element: leftJunction, startAt: 500, duration: 100 }, // Doubled
+      { element: rightJunction, startAt: 540, duration: 100 }, // Doubled
+      { element: leftHorizontal, startAt: 600, duration: 300 }, // Doubled
+      { element: rightHorizontal, startAt: 640, duration: 300 }, // Doubled
+      { element: centerJunction, startAt: 900, duration: 100 }, // Doubled
+      { element: centerVertical, startAt: 1000, duration: 300 }, // Doubled
+      { element: bottomCircle, startAt: 1200, duration: 100 } // Doubled
+      // Ground symbol elements are static and don't animate
     ];
   }
 
@@ -157,12 +161,10 @@ class SchematicBorderController {
       
       this.updateAnimationProgress();
       
-      // Check if animation is complete and unlock scrolling
+      // Check if animation is complete and trigger electricity flow
       if (this.scrollAmount >= this.maxScroll && !this.animationComplete) {
         this.animationComplete = true;
-        setTimeout(() => {
-          this.unlockScrollAndNavigate();
-        }, 500); // Small delay to let final animation complete
+        this.triggerElectricityFlow(); // Immediate, no delay
       }
     }
   }
@@ -178,12 +180,10 @@ class SchematicBorderController {
       this.scrollAmount = Math.min(this.scrollAmount, this.maxScroll);
       this.updateAnimationProgress();
       
-      // Check if animation is complete and unlock scrolling
+      // Check if animation is complete and trigger electricity flow
       if (this.scrollAmount >= this.maxScroll && !this.animationComplete) {
         this.animationComplete = true;
-        setTimeout(() => {
-          this.unlockScrollAndNavigate();
-        }, 500);
+        this.triggerElectricityFlow(); // Immediate, no delay
       }
     }
   }
@@ -290,21 +290,84 @@ class SchematicBorderController {
     });
   }
 
+  triggerElectricityFlow() {
+    // Add transition class to all elements first (including ground symbol)
+    const allElements = document.querySelectorAll('.schematic-border-left, .schematic-border-right, .schematic-border-horizontal-left, .schematic-border-horizontal-right, .schematic-border-center, .schematic-border-junction-left, .schematic-border-junction-right, .schematic-border-junction-center, .schematic-border-circle, .schematic-border-ground, .schematic-border-ground-line2, .schematic-border-ground-line3');
+    
+    allElements.forEach(element => {
+      element.classList.add('electricity-transition');
+    });
+
+    // Apply electricity flow animation in new order - vertical first, then horizontal, then middle, then ground
+    const elements = [
+      // Top vertical lines light up first
+      { element: document.querySelector('.schematic-border-left'), delay: 0 },
+      { element: document.querySelector('.schematic-border-right'), delay: 0 },
+      { element: document.querySelector('.schematic-border-junction-left'), delay: 100 },
+      { element: document.querySelector('.schematic-border-junction-right'), delay: 100 },
+      // Then horizontal lines
+      { element: document.querySelector('.schematic-border-horizontal-left'), delay: 200 },
+      { element: document.querySelector('.schematic-border-horizontal-right'), delay: 200 },
+      { element: document.querySelector('.schematic-border-junction-center'), delay: 300 },
+      // Then middle vertical line and circle
+      { element: document.querySelector('.schematic-border-center'), delay: 400 },
+      { element: document.querySelector('.schematic-border-circle'), delay: 500 },
+      // Finally ground symbol (arrow) lights up last
+      { element: document.querySelector('.schematic-border-ground'), delay: 600 },
+      { element: document.querySelector('.schematic-border-ground-line2'), delay: 600 },
+      { element: document.querySelector('.schematic-border-ground-line3'), delay: 600 }
+    ];
+
+    elements.forEach(({ element, delay }) => {
+      if (element) {
+        setTimeout(() => {
+          element.classList.add('electricity-active');
+        }, delay);
+      }
+    });
+
+    // After electricity flow completes, unlock scrolling - slower
+    setTimeout(() => {
+      this.unlockScrollAndNavigate();
+    }, 1200); // Doubled completion time
+  }
+
   unlockScrollAndNavigate() {
     this.scrollUnlocked = true;
     
     // Find the projects section (which uses id="blog" based on the HTML)
     const projectsSection = document.querySelector('#blog');
     if (projectsSection) {
-      // Smooth scroll to projects section
-      projectsSection.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
+      // Calculate a position that's less than the full section top
+      const sectionTop = projectsSection.offsetTop;
+      const offset = window.innerHeight * 0.1; // Show 10% of previous section
+      const targetPosition = sectionTop - offset;
+      
+      // Custom slow scroll animation
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // 3 seconds for very slow scroll
+      let startTime = null;
+      
+      function slowScroll(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        // Easing function for smooth deceleration
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        
+        window.scrollTo(0, startPosition + distance * easeOutCubic);
+        
+        if (progress < 1) {
+          requestAnimationFrame(slowScroll);
+        }
+      }
+      
+      requestAnimationFrame(slowScroll);
     }
   }
 }
-
 // Initialize when page is ready
 function initSchematicBorder() {
   if (!window.schematicBorderController) {

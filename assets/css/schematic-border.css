@@ -1,11 +1,24 @@
 /* Simple Schematic Border Animation - Phase 1 */
 :root {
-  --glow-yellow: #000000;
+  --glow-yellow: #18003c;
   --glow-yellow-bright: #ffffff;
+  --electric-yellow: #FFD700;
+  --electric-yellow-bright: #ffff32;
   --line-width: 1px;
   --circle-size: 15px;
   --border-height: 70%; /* Height where vertical lines stop */
   --connection-y: 70%; /* Y position for horizontal connection */
+}
+
+/* Electricity activated state */
+.electricity-active {
+  --glow-yellow: #eacd28 !important;
+  --glow-yellow-bright: #fff891 !important;
+}
+
+/* Smooth transition for electricity flow */
+.electricity-transition {
+  transition: all 0.6s ease; /* Doubled from 0.3s */
 }
 
 /* Container for the schematic border elements */
@@ -93,14 +106,14 @@
 /* Center vertical line (from connection point down to circle) */
 .schematic-border-center {
   position: absolute;
-  left: 50%;
+  left: 50.005%;
   top: var(--connection-y);
   margin-left: calc(var(--line-width) / -2);
   width: var(--line-width);
-  height: 5%; /* Short line just to the circle position */
+  height: 15%; /* Doubled length to position circle lower */
   background: linear-gradient(to bottom, 
     var(--glow-yellow) 0%,
-    var(--glow-yellow-bright) 50%,
+    var(--glow-yellow-bright) 90%,
     var(--glow-yellow) 100%);
   box-shadow: 0 0 15px var(--glow-yellow);
   transform: scaleY(0);
@@ -164,7 +177,7 @@
 .schematic-border-circle {
   position: absolute;
   left: 50%;
-  bottom: 25%; /* Moved higher up */
+  bottom: calc(15% + 28px); /* Positioned to connect with top of ground symbol vertical line */
   width: calc(var(--circle-size) * 1.2);
   height: calc(var(--circle-size) * 1.2);
   margin-left: calc(var(--circle-size) * 1.2 / -2);
@@ -177,40 +190,63 @@
   opacity: 0;
 }
 
-/* Extended line from projects section up to bottom circle */
-.schematic-border-extended-line {
+/* Electrical ground symbol (static, always visible) */
+.schematic-border-ground {
   position: absolute;
   left: 50%;
-  bottom: 5%; /* Starts from projects divider area */
-  margin-left: calc(var(--line-width) / -2);
-  width: var(--line-width);
-  height: 20vh; /* Extends up to connect with the raised circle */
-  background: linear-gradient(to top, 
-    var(--glow-yellow) 0%,
-    var(--glow-yellow-bright) 50%,
-    var(--glow-yellow) 100%);
-  box-shadow: 0 0 15px var(--glow-yellow);
-  transform: scaleY(0);
-  transform-origin: bottom; /* Animation starts from bottom */
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
+  bottom: 15%; /* Moved higher up */
+  margin-left: -1px;
+  opacity: 1; /* Always visible */
 }
 
-/* Arrow pointing up at the start of the extended line */
-.schematic-border-arrow {
+/* Ground symbol vertical line */
+.schematic-border-ground::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -30px;
+    width: calc(var(--line-width) * 2); /* 2x wider */
+    height: 50px; /* Slightly taller */
+    background: var(--glow-yellow);
+    box-shadow: 0 0 8px var(--glow-yellow);
+}
+
+/* Ground symbol first horizontal line */
+.schematic-border-ground::after {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 20px; /* More space from vertical line */
+  width: 60px; /* 2x wider */
+  height: calc(var(--line-width) * 2); /* 2x wider */
+  background: var(--glow-yellow);
+  box-shadow: 0 0 8px var(--glow-yellow);
+}
+
+/* Ground symbol second horizontal line */
+.schematic-border-ground-line2 {
   position: absolute;
   left: 50%;
-  bottom: 3%; /* At the bottom, pointing up */
-  margin-left: -8px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 15px solid var(--glow-yellow); /* Points upward */
-  filter: drop-shadow(0 0 8px var(--glow-yellow));
-  opacity: 0;
-  transform: scale(0);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  bottom: calc(15% - 33px); /* Equal spacing from first line */
+  margin-left: -18px; /* Better centering for 18px width */
+  width: 40px; /* 2x wider */
+  height: calc(var(--line-width) * 2); /* 2x wider */
+  background: var(--glow-yellow);
+  box-shadow: 0 0 8px var(--glow-yellow);
+  opacity: 1; /* Always visible */
+}
+
+/* Ground symbol third horizontal line */
+.schematic-border-ground-line3 {
+  position: absolute;
+  left: 50%;
+  bottom: calc(15% - 44px); /* Equal spacing from second line */
+  margin-left: -6.5px; /* Better centering for 8px width */
+  width: 15px; /* Shorter like an arrow tip */
+  height: calc(var(--line-width) * 2); /* 2x wider */
+  background: var(--glow-yellow);
+  box-shadow: 0 0 8px var(--glow-yellow);
+  opacity: 1; /* Always visible */
 }
 
 /* Animations */
