@@ -144,9 +144,18 @@ class SchematicBorderController {
   }
 
   handleScroll(event) {
-    // Only prevent scrolling if we're on the about section and animation isn't complete
+    // Check if we're still in the about section
     const aboutSection = document.querySelector('#about');
-    if (aboutSection && this.isInViewport(aboutSection) && !this.scrollUnlocked) {
+    const inAboutSection = aboutSection && this.isInViewport(aboutSection);
+    
+    // If we're not in the about section anymore, unlock scrolling
+    if (!inAboutSection && this.scrollUnlocked === false) {
+      this.scrollUnlocked = true;
+      return; // Allow normal scrolling
+    }
+    
+    // Only prevent scrolling if we're on the about section and animation isn't complete
+    if (inAboutSection && !this.scrollUnlocked) {
       event.preventDefault();
       
       // Add to scroll amount based on scroll direction
@@ -170,9 +179,18 @@ class SchematicBorderController {
   }
 
   handleTouch(event) {
-    // Handle touch scrolling for mobile devices
+    // Check if we're still in the about section
     const aboutSection = document.querySelector('#about');
-    if (aboutSection && this.isInViewport(aboutSection) && !this.scrollUnlocked) {
+    const inAboutSection = aboutSection && this.isInViewport(aboutSection);
+    
+    // If we're not in the about section anymore, unlock scrolling
+    if (!inAboutSection && this.scrollUnlocked === false) {
+      this.scrollUnlocked = true;
+      return; // Allow normal scrolling
+    }
+    
+    // Handle touch scrolling for mobile devices
+    if (inAboutSection && !this.scrollUnlocked) {
       event.preventDefault();
       
       // For touch, we'll increment scroll amount
@@ -201,9 +219,18 @@ class SchematicBorderController {
   }
 
   handleKeydown(event) {
-    // Prevent scrolling with arrow keys, page down, space, etc. only if animation isn't complete
+    // Check if we're still in the about section
     const aboutSection = document.querySelector('#about');
-    if (aboutSection && this.isInViewport(aboutSection) && !this.scrollUnlocked) {
+    const inAboutSection = aboutSection && this.isInViewport(aboutSection);
+    
+    // If we're not in the about section anymore, unlock scrolling
+    if (!inAboutSection && this.scrollUnlocked === false) {
+      this.scrollUnlocked = true;
+      return; // Allow normal scrolling
+    }
+    
+    // Prevent scrolling with arrow keys, page down, space, etc. only if animation isn't complete
+    if (inAboutSection && !this.scrollUnlocked) {
       const scrollKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
       if (scrollKeys.includes(event.keyCode)) {
         event.preventDefault();
@@ -330,6 +357,99 @@ class SchematicBorderController {
     setTimeout(() => {
       this.unlockScrollAndNavigate();
     }, 1200); // Doubled completion time
+  }
+
+  triggerElectricityFlowAndNavigate(targetHref, offsetAdjustment) {
+    // Add transition class to all elements first (including ground symbol)
+    const allElements = document.querySelectorAll('.schematic-border-left, .schematic-border-right, .schematic-border-horizontal-left, .schematic-border-horizontal-right, .schematic-border-center, .schematic-border-junction-left, .schematic-border-junction-right, .schematic-border-junction-center, .schematic-border-circle, .schematic-border-ground, .schematic-border-ground-line2, .schematic-border-ground-line3');
+    
+    allElements.forEach(element => {
+      element.classList.add('electricity-transition');
+    });
+
+    // Apply electricity flow animation in new order - vertical first, then horizontal, then middle, then ground
+    const elements = [
+      // Top vertical lines light up first
+      { element: document.querySelector('.schematic-border-left'), delay: 0 },
+      { element: document.querySelector('.schematic-border-right'), delay: 0 },
+      { element: document.querySelector('.schematic-border-junction-left'), delay: 100 },
+      { element: document.querySelector('.schematic-border-junction-right'), delay: 100 },
+      // Then horizontal lines
+      { element: document.querySelector('.schematic-border-horizontal-left'), delay: 200 },
+      { element: document.querySelector('.schematic-border-horizontal-right'), delay: 200 },
+      { element: document.querySelector('.schematic-border-junction-center'), delay: 300 },
+      // Then middle vertical line and circle
+      { element: document.querySelector('.schematic-border-center'), delay: 400 },
+      { element: document.querySelector('.schematic-border-circle'), delay: 500 },
+      // Finally ground symbol (arrow) lights up last
+      { element: document.querySelector('.schematic-border-ground'), delay: 600 },
+      { element: document.querySelector('.schematic-border-ground-line2'), delay: 600 },
+      { element: document.querySelector('.schematic-border-ground-line3'), delay: 600 }
+    ];
+
+    elements.forEach(({ element, delay }) => {
+      if (element) {
+        setTimeout(() => {
+          element.classList.add('electricity-active');
+        }, delay);
+      }
+    });
+
+    // After electricity flow completes, navigate to the specified target instead of projects
+    setTimeout(() => {
+      this.scrollUnlocked = true;
+      
+      // Navigate to the specified target section
+      const targetSection = document.querySelector(targetHref);
+      if (targetSection) {
+        // For contact section, ensure content is loaded before scrolling
+        if (targetHref === '#contact') {
+          // Wait for the contact content to be loaded and rendered
+          const checkContactLoaded = () => {
+            const contactContent = targetSection.querySelector('.vg-contact-form');
+            if (contactContent && targetSection.offsetHeight > 100) {
+              // Content is loaded, proceed with scroll
+              this.scrollToTarget(targetSection, offsetAdjustment);
+            } else {
+              // Content not loaded yet, check again in 100ms
+              setTimeout(checkContactLoaded, 100);
+            }
+          };
+          checkContactLoaded();
+        } else {
+          // For other sections, scroll immediately
+          this.scrollToTarget(targetSection, offsetAdjustment);
+        }
+      }
+    }, 1200);
+  }
+
+  scrollToTarget(targetSection, offsetAdjustment) {
+    const sectionTop = targetSection.offsetTop;
+    const targetPosition = sectionTop - offsetAdjustment;
+    
+    // Custom slow scroll animation to target
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1500; // 1.5 seconds for smooth scroll
+    let startTime = null;
+    
+    function slowScroll(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      
+      // Easing function for smooth deceleration
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      
+      window.scrollTo(0, startPosition + distance * easeOutCubic);
+      
+      if (progress < 1) {
+        requestAnimationFrame(slowScroll);
+      }
+    }
+    
+    requestAnimationFrame(slowScroll);
   }
 
   unlockScrollAndNavigate() {
