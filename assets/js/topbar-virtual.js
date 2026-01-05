@@ -18,16 +18,9 @@ $(function() {
     items: 1,
   });
   
-  // Nice select
   $('.vg-select').niceSelect();
-  
-  // Tooltip
   $('[data-toggle="tooltip"]').tooltip();
-  
-  // Page animation initialize
   new WOW().init();
-  
-  // Back to top
   var backTop = $(".btn-back_to_top");
   
   $(window).scroll(function() {
@@ -68,9 +61,6 @@ $(function() {
 });
 
 $(document).ready(function () {
-  
-  /* Sticky nvigation */
-  
   var sticky = {
     $sticky: $('.sticky'),
     offsets: [],
@@ -85,10 +75,8 @@ $(document).ready(function () {
       self.offsets = [];
       self.targets = [];
       
-      // Get current top position of sticky element
       self.stickyTop = self.$sticky.data('offset') ? self.$sticky.css('position', 'absolute').data('offset') : self.$sticky.css('position', 'absolute').offset().top;
       
-      // Cache all targets and their top positions
       self.$sticky.find('a').map(function () {
         var $el = $(this),
         href = $el.data('target') || $el.attr('href'),
@@ -111,7 +99,6 @@ $(document).ready(function () {
       var stickyPosition = 'fixed';
       var currentIndex = 0;
       
-      // Toggle fixed position depending on visibility
       if ($(window).width() < 800 || $(window).height() < 500 || self.stickyTop > windowTop) {
         stickyPosition = 'absolute';
         self.$sticky.removeClass('floating');
@@ -124,8 +111,7 @@ $(document).ready(function () {
             
             break;
           }
-        }
-        
+        } 
       }
       
       self.$sticky.css({ 'position': stickyPosition});
@@ -197,11 +183,6 @@ $(document).ready(function() {
 });
 
 
-/*
- *  Counter
- *
- *  Require(" jquery.animateNumber.min.js ", " jquery.waypoints.min.js ")
- */
 $(document).ready(function() {
   var counterInit = function() {
     if ( $('.section-counter').length > 0 ) {

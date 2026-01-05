@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+  <!-- Starting template -->
   <meta name="copyright" content="MACode ID, https://www.macodeid.com/">
   
   <!-- Tab website heading -->
@@ -47,14 +47,13 @@
       });
     });
     
-    // Ensure page always starts at the about section - multiple event handlers
     function scrollToAboutSection() {
-      // Remove any hash from URL to prevent auto-scrolling to other sections
+      // remove hash to prevent auto-scrolling 
       if (window.location.hash) {
         history.replaceState(null, null, window.location.pathname);
       }
       
-      // Scroll to about section with offset
+      // offsets
       const aboutSection = document.querySelector('#about');
       if (aboutSection) {
         window.scrollTo({
@@ -64,17 +63,15 @@
       }
     }
     
-    // Handle different types of page loads
+    // different types of page loads
     $(document).ready(function() {
       setTimeout(scrollToAboutSection, 100);
     });
     
-    // Handle window load event (for hard refreshes like Ctrl+R)
     window.addEventListener('load', function() {
       setTimeout(scrollToAboutSection, 150);
     });
     
-    // Handle DOMContentLoaded event
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(scrollToAboutSection, 50);
     });
@@ -84,7 +81,7 @@
       event.preventDefault();
       var target = $(this.getAttribute('href'));
       var targetHref = this.getAttribute('href');
-      var offsetAdjustment = 0; // Default offset adjustment is 0
+      var offsetAdjustment = 0;
 
       // adjust scrolling for projects (blog) section
       if (targetHref === '#blog') {
@@ -97,10 +94,9 @@
         offsetAdjustment = 80; 
       }
 
-      // Special handling for contact - skip animation entirely and just scroll
+      // contact -> skip animation entirely and just scroll
       if (targetHref === '#contact' && window.schematicBorderController) {
         const controller = window.schematicBorderController;
-        // Immediately unlock scrolling and navigate to contact
         controller.scrollUnlocked = true;
         
         if (target.length) {
@@ -108,30 +104,24 @@
             scrollTop: target.offset().top - offsetAdjustment
           }, 1000);
         }
-        return; // Exit early for contact
+        return;
       }
 
-      // Check if we're navigating away from the about section and need to complete the animation
       if (targetHref !== '#about' && window.schematicBorderController) {
         const controller = window.schematicBorderController;
         if (!controller.animationComplete && !controller.scrollUnlocked) {
-          // Complete the animation immediately, then navigate to the target
           controller.scrollAmount = controller.maxScroll;
           controller.animationComplete = true;
           controller.updateAnimationProgress();
-          
-          // Trigger electricity flow and then navigate to target (not projects)
           controller.triggerElectricityFlowAndNavigate(targetHref, offsetAdjustment);
-          return; // Don't execute the normal navigation
+          return;
         }
       }
 
-      // Normal navigation for other cases
       if (target.length) {
         $('html, body').stop().animate({
           scrollTop: target.offset().top - offsetAdjustment
         }, 1000, function() {
-          // After navigation animation completes, ensure scrolling is unlocked
           if (window.schematicBorderController) {
             window.schematicBorderController.scrollUnlocked = true;
           }

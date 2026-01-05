@@ -66,6 +66,8 @@
 /*  THIS IS WHERE TO CHANGE EVERYTHING FOR FONT */
 body {
     font-family: 'Quicksand', sans-serif; 
+    /* Notion font */
+    /* font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";  */
     font-weight: 400;
 }
 
@@ -451,7 +453,9 @@ button.bg-dark:focus {
 }
 
 .projects-section {
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: relative;
 }
 
 .connector-bottom {

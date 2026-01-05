@@ -74,16 +74,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  // Nice select
   $('.vg-select').niceSelect();
-
-  // Tooltip
   $('[data-toggle="tooltip"]').tooltip();
-
-  // Page animation initialize
   new WOW().init();
-  
-  // Back to top
   var backTop = $(".btn-back_to_top");
   
   $(window).scroll(function() {
@@ -158,11 +151,6 @@ $(document).ready(function() {
   });
 });
 
-/*
- *  Counter
- *
- *  Require(" jquery.animateNumber.min.js ", " jquery.waypoints.min.js ")
- */
 $(document).ready(function() {
   var counterInit = function() {
   if ( $('.section-counter').length > 0 ) {

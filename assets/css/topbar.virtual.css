@@ -29,7 +29,6 @@
   border-radius: 40px;
 }
 
-/* Filterable button */
 .filterable-button {
   position: relative;
   display: flex;
@@ -66,12 +65,10 @@
 }
 
 
-/* Page */
 .vg-page {
   position: relative;
   display: block;
   margin-bottom: 0px;
-  /* Controls how much bkgnd is shown */
   padding: 50px 0;
   width: 100%;
   overflow: hidden;
@@ -157,7 +154,6 @@
 
 .page-about {
   background-color: rgba(255, 255, 255, 0.8); 
-  /* controls opacity of first section */
 
 }
 
@@ -470,7 +466,6 @@
   max-width: 400px;
 }
 
-/* Footer */
 .vg-footer {
   position: relative;
   display: block;
@@ -678,4 +673,8 @@
 
 .theme-purple .post-grid .post-category {
   color: #6f42c1;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  font-weight: normal !important;
 }

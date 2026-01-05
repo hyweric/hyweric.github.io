@@ -1,7 +1,7 @@
 <div id = "divider"></div>
 <div class="image-column-container" style="max-width: none; margin-bottom:20px;">
     <div class="image-column">
-        <strong>Project Status:</strong> Ongoing
+        <strong>Project Status:</strong> Completed
     </div>
     <div class="image-column">
         <strong>Project Type:</strong> Website
@@ -15,7 +15,9 @@
 
 ### Synopsis:
 
-A robot designed to climb vertical surfaces using suction. Paper Accepted to IRC IEEE 2024. All hardware, electronics, software completed by me. Partial funding from partner and grants.
+A quadruped designed to climb vertical surfaces using active suction. Paper Published @ IRC IEEE 2024. 
+
+All technical components completed by me. Partial funding from grants, Ray, and myself.
 
 # Working Demo 
 
