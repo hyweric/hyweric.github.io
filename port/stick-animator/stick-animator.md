@@ -15,7 +15,7 @@
 
 **Links:** 
 
-- [**Website Link**](https://stickanimator.onrender.com/) [Build Time may take up to 1 minute since website is hosted on free plan of render. ]
+- [**Website Link**](https://stickanimator.onrender.com/) (Hosted on Render - May take a while to load)
 - [**Source Code**](https://github.com/hyweric/stickFigureVideo/tree/master)
 
 ---

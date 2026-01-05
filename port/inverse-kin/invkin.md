@@ -14,7 +14,7 @@
 ---
 **Links:** 
 
-- [**Website**](https://inverse-kin-8a5e0cc0768d.herokuapp.com/) (Hosted on Heroku Github Student Plan.)
+- [**Website**](https://inverse-kinematics.onrender.com/) (Hosted on Render - May take a while to load)
 
 - [**Github**](https://github.com/hyweric/inverseKinematics)
 
