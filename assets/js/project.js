@@ -10,6 +10,11 @@ async function loadProject() {
       image.loading = "lazy";
       image.decoding = "async";
     });
+    content.querySelectorAll("video").forEach((video) => {
+      video.autoplay = true;
+      video.muted = true;
+      video.playsInline = true;
+    });
     content.querySelectorAll("iframe").forEach((frame) => {
       frame.loading = "lazy";
       if (!frame.title) frame.title = "Project report or demonstration";

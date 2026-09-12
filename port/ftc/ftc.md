@@ -59,10 +59,3 @@ Sprung mecanum pods fold to accommodate obstacles and uneven ground.
 <figure><video controls playsinline muted loop preload="metadata"><source src="FTC%20Robots%20(3+%20years)%200b92491938aa4489bfbfdb033a32d7d6/videos/drone-demo.mp4" type="video/mp4"></video><figcaption>Launcher demonstration</figcaption></figure>
 </div>
 
-## Carousel spinner · 2021
-
-<div class="ftc-gallery ftc-gallery--three">
-<figure><img src="FTC%20Robots%20(3+%20years)%200b92491938aa4489bfbfdb033a32d7d6/carousel0.png" alt="First prototype"><figcaption>First prototype</figcaption></figure>
-<figure><img src="FTC%20Robots%20(3+%20years)%200b92491938aa4489bfbfdb033a32d7d6/carousel1.png" alt="Revised extending mechanism"><figcaption>Revised extending mechanism</figcaption></figure>
-<figure><img src="FTC%20Robots%20(3+%20years)%200b92491938aa4489bfbfdb033a32d7d6/carousel2.png" alt="Revised mechanism, extended"><figcaption>Revised mechanism, extended</figcaption></figure>
-</div>

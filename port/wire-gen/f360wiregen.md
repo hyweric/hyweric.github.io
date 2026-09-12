@@ -7,7 +7,7 @@
         <strong>Project Type:</strong> Extension
     </div>
     <div class="image-column">
-        <strong>Created on:</strong> Feb 6, 2024
+        <strong>Created on:</strong> 2023 - 2024
     </div>
 </div>
 

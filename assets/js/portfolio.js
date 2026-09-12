@@ -2,6 +2,10 @@ const header = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 const projectTrack = document.querySelector("[data-project-track]");
+if (menuButton) {
+  menuButton.innerHTML = '<span class="menu-icon" aria-hidden="true"><span></span><span></span></span>';
+  menuButton.setAttribute("aria-label", "Open navigation menu");
+}
 
 function updateHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 18);
@@ -12,17 +16,31 @@ window.addEventListener("scroll", updateHeader, { passive: true });
 function closeMenu() {
   navigation?.classList.remove("is-open");
   menuButton?.setAttribute("aria-expanded", "false");
-  if (menuButton) menuButton.textContent = "Menu";
+  menuButton?.setAttribute("aria-label", "Open navigation menu");
 }
 menuButton?.addEventListener("click", () => {
   const open = navigation.classList.toggle("is-open");
   menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.textContent = open ? "Close" : "Menu";
+  menuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
 });
 navigation?.addEventListener("click", closeMenu);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape" && navigation?.classList.contains("is-open")) {
+    closeMenu();
+    menuButton?.focus();
+  }
 });
+document.addEventListener("click", (event) => {
+  if (!header?.contains(event.target)) closeMenu();
+});
+
+const footer = document.querySelector(".site-footer");
+if (footer) {
+  document.body.classList.add("has-bottom-fade");
+  new IntersectionObserver(([entry]) => {
+    document.body.classList.toggle("footer-visible", entry.isIntersecting);
+  }).observe(footer);
+}
 
 if (projectTrack) {
   const cards = [...projectTrack.querySelectorAll(".project-card")];
@@ -34,6 +52,10 @@ if (projectTrack) {
   let position = 0;
   let written = 0;
   let lastTime = 0;
+  let speed = 1;
+  let inertiaVelocity = 0;
+  let pointer = null;
+  let suppressClickUntil = 0;
 
   // One repeated set on either side makes the seam identical in both directions.
   // Copies stay clickable but are excluded from keyboard/screen-reader traversal.
@@ -51,6 +73,9 @@ if (projectTrack) {
   projectTrack.prepend(...before);
   projectTrack.append(...copies());
   projectTrack.classList.add("is-looping");
+  projectTrack.querySelectorAll("img, a").forEach(element => {
+    element.draggable = false;
+  });
 
   function measure() {
     const previousCycle = cycle;
@@ -68,61 +93,98 @@ if (projectTrack) {
   new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting;
   }).observe(projectTrack);
-  projectTrack.addEventListener("pointerdown", () => {
+  projectTrack.addEventListener("pointerdown", (event) => {
+    if (!event.isPrimary || event.button !== 0) return;
     touching = true;
+    speed = 0;
+    inertiaVelocity = 0;
+    pointer = {
+      id: event.pointerId,
+      startX: event.clientX,
+      lastX: event.clientX,
+      lastTime: performance.now(),
+      velocity: 0,
+      dragging: false,
+    };
   });
-  window.addEventListener("pointerup", () => {
-    if (touching) manualUntil = performance.now() + 1200;
+  projectTrack.addEventListener("pointermove", (event) => {
+    if (!pointer || event.pointerId !== pointer.id) return;
+    if (!pointer.dragging && Math.abs(event.clientX - pointer.startX) < 5) return;
+    if (!pointer.dragging) {
+      pointer.dragging = true;
+      projectTrack.setPointerCapture(event.pointerId);
+      projectTrack.classList.add("is-dragging");
+    }
+    const now = performance.now();
+    const delta = pointer.lastX - event.clientX;
+    const elapsed = Math.max(1, now - pointer.lastTime);
+    pointer.velocity = pointer.velocity * 0.65 + (delta / elapsed) * 0.35;
+    position = projectTrack.scrollLeft + delta;
+    pointer.lastX = event.clientX;
+    pointer.lastTime = now;
+    normalize();
+    projectTrack.scrollLeft = position;
+    written = projectTrack.scrollLeft;
+  });
+  function releasePointer(event) {
+    if (!pointer || event.pointerId !== pointer.id) return;
+    if (pointer.dragging) suppressClickUntil = performance.now() + 350;
+    inertiaVelocity = pointer.dragging ? pointer.velocity : 0;
+    if (projectTrack.hasPointerCapture(event.pointerId)) projectTrack.releasePointerCapture(event.pointerId);
+    pointer = null;
+    manualUntil = performance.now();
     touching = false;
-  });
-  window.addEventListener("pointercancel", () => {
-    touching = false;
-  });
+    projectTrack.classList.remove("is-dragging");
+  }
+  window.addEventListener("pointerup", releasePointer);
+  window.addEventListener("pointercancel", releasePointer);
+  projectTrack.addEventListener("lostpointercapture", releasePointer);
+  projectTrack.addEventListener("dragstart", event => event.preventDefault());
+  projectTrack.addEventListener("click", event => {
+    if (event.detail !== 0 && performance.now() < suppressClickUntil) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
   projectTrack.addEventListener(
     "wheel",
     () => {
+      inertiaVelocity = 0;
       manualUntil = performance.now() + 2500;
     },
     { passive: true },
   );
   projectTrack.addEventListener("keydown", () => {
+    inertiaVelocity = 0;
     manualUntil = performance.now() + 2500;
   });
 
   function normalize() {
-    if (cycle && !touching) {
+    if (cycle) {
       while (position < cycle * 0.5) position += cycle;
       while (position >= cycle * 2) position -= cycle;
     }
   }
-  function move(direction) {
-    manualUntil = performance.now() + 2500;
-    position = projectTrack.scrollLeft + (direction * cycle) / cards.length;
-    normalize();
-    projectTrack.scrollLeft = position;
-    written = projectTrack.scrollLeft;
-  }
-  document
-    .querySelector("[data-project-prev]")
-    .addEventListener("click", () => move(-1));
-  document
-    .querySelector("[data-project-next]")
-    .addEventListener("click", () => move(1));
-
   function animate(time) {
     const elapsed = Math.min(time - (lastTime || time), 50);
     lastTime = time;
     // Adopt native wheel/touch/keyboard scrolling without losing fractional motion.
     if (Math.abs(projectTrack.scrollLeft - written) > 1)
       position = projectTrack.scrollLeft;
-    if (
+    const running =
       visible &&
       !document.hidden &&
       !touching &&
       time > manualUntil &&
-      !(canHover.matches && projectTrack.querySelector(".project-card:hover"))
-    ) {
-      position += elapsed * 0.0242; // 24.2 pixels per second.
+      !(canHover.matches && projectTrack.querySelector(".project-card:hover"));
+    const previousSpeed = speed;
+    // Ease automatic motion around hover and drag interactions.
+    speed = running ? Math.min(1, speed + elapsed / 180) : Math.max(0, speed - elapsed / 180);
+    if (visible && !document.hidden && !touching && time > manualUntil) {
+      position += elapsed * 0.05445 * (previousSpeed + speed) / 2;
+      position += inertiaVelocity * elapsed;
+      inertiaVelocity *= Math.exp(-elapsed / 220);
+      if (Math.abs(inertiaVelocity) < 0.01) inertiaVelocity = 0;
     }
     normalize();
     if (!touching) {

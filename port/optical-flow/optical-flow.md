@@ -4,7 +4,7 @@
         <strong>Project Status:</strong> Ongoing
     </div>
     <div class="image-column">
-        <strong>Project Type:</strong> Sensing
+        <strong>Project Type:</strong> Software
     </div>
     <div class="image-column">
         <strong>Created on:</strong> Dec 26th, 2023

@@ -1,10 +1,31 @@
 A handheld persistence-of-vision display with a rotating RGB LED array.
 
-**Status:** In development
+<div class="image-column-container">
+	<div class="image-column">
+		<strong>Project Status:</strong> In development
+	</div>
+	<div class="image-column">
+		<strong>Project Type:</strong> Personal Interest
+	</div>
+	<div class="image-column">
+		<strong>Created on:</strong> 2026
+	</div>
+</div>
 
-**Focus:** PCB design, embedded control, RF, and power electronics
+<div class="volumetric-gallery">
+	<figure class="schematic-sample">
+		<h3 class="media-title">Schematic Samples</h3>
+		<img src="../../assets/img/projects-img/electronic-hourglass-schematics.png" alt="Six-panel schematic sample for the electronic hourglass display" />
+	</figure>
+	<figure class="layout-sample">
+		<h3 class="media-title">PCB Layout - In Progress</h3>
+		<img src="../../assets/img/projects-img/volumetric-display.png" alt="PCB layouts for the 3D Volumetric Display" />
+	</figure>
+</div>
 
-[Source code & hardware on GitHub](https://github.com/hyweric/Electronic-Volumetric-Display)
+**Links:**
+
+- [**GitHub**](https://github.com/hyweric/Electronic-Volumetric-Display)
 
 ## Electronics
 
@@ -14,6 +35,3 @@ A handheld persistence-of-vision display with a rotating RGB LED array.
 - Custom 2.4 GHz PCB antenna and RF matching network
 - Battery charging and power-distribution circuitry; USB-C for charging and external power
 
-## Display pipeline
-
-The planned slicer converts 3D models into LED frames synchronized with the motor position. BLE provides control and content transfer. The platform is intended for volumetric graphics and an electronic-hourglass mode.
