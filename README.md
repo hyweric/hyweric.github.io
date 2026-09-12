@@ -98,8 +98,11 @@ project images and documentation remain in their original folders.
 ## Project carousel
 
 The homepage carousel loops at 24.2 pixels per second. Edit that speed in
-`assets/js/portfolio.js`. It scrolls automatically whenever visible and pauses only while a project card is hovered.
-Dragging and manual navigation briefly suspend motion. Keep only the six original cards in `index.html`; JavaScript creates the
+`assets/js/portfolio.js`. It scrolls automatically whenever visible and ramps down
+to rest over 200 ms when a project card is hovered, then ramps back up on exit.
+Mouse dragging and horizontal touch swipes move the cards directly; vertical
+touch gestures still scroll the page. Dragging suppresses accidental project
+clicks and briefly suspends automatic motion. Keep only the six original cards in `index.html`; JavaScript creates the
 repeated sets. Without JavaScript, the original manual carousel remains.
 
 `projects.html` contains the static six-project gallery, with three columns on
