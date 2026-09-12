@@ -1,10 +1,10 @@
-<div id = "divider"></div>
-<div class="image-column-container" style="max-width: none; margin-bottom:20px;">
+
+<div class="image-column-container">
     <div class="image-column">
         <strong>Project Status:</strong> Completed
     </div>
     <div class="image-column">
-        <strong>Project Type:</strong> Website
+        <strong>Project Type:</strong> Robotics
     </div>
     <div class="image-column">
         <strong>Created on:</strong> Jun 2024
@@ -13,25 +13,25 @@
 
 ---
 
-### Synopsis:
+## Overview
 
-A quadruped designed to climb vertical surfaces using active suction. Paper Published @ IRC IEEE 2024. 
+A quadruped designed to climb vertical surfaces using active suction. Paper Published @ IRC IEEE 2024.
 
 All technical components completed by me. Partial funding from grants, Ray, and myself.
 
-# Working Demo 
+## Working Demo
 
 <div class="image-column-container">
-    <div class="image-column" style="flex: 2;">
+    <div class="image-column">
         <h3>Step on vertical plane (Rotated Camera) 9/24</h3>
-        <video width="80%" autoplay muted loop>
+        <video width="80%" muted loop controls playsinline preload="metadata">
             <source src="climber-vids/dogclip2.mov" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-    <div class="image-column" style="flex: 2;">
+    <div class="image-column">
         <h3>Walking Sequence (Upside Down for Visibility) 9/24</h3>
-        <video width="80%" autoplay muted loop>
+        <video width="80%" muted loop controls playsinline preload="metadata">
              <source src="climber-vids/dogclip1.mov" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -40,33 +40,33 @@ All technical components completed by me. Partial funding from grants, Ray, and 
 
 
 <div class="image-column-container">
-    <div class="image-column" style="flex: 3;">
+    <div class="image-column">
         <h3>Plane Transition Motion 9/24</h3>
-        <video width="80%" autoplay muted loop>
+        <video width="80%" muted loop controls playsinline preload="metadata">
             <source src="climber-vids/dogclip3.mov" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-    <div class="image-column" style="flex: 2;">
+    <div class="image-column">
         <h3>CAD Diagram w/ Marking 7/24</h3>
         <img src="climber-vids/dogclip4.png" alt="Untitled">
     </div>
 </div>
 
-# First Signs of Walking
+## First Signs of Walking
 
 <div class="image-column-container">
-    <div class="image-column" style="flex: 2;">
+    <div class="image-column">
         <h3> Baby Steps - First (Failed) Walk Test 8/24 </h3>
-        <video width="80%" autoplay muted loop>
+        <video width="80%" muted loop controls playsinline preload="metadata">
             <source src="climber-vids/dogclip5.mov" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <h4>Lesson: Feet can't stay planted on the ground => alternate in cycle</h4>
     </div>
-    <div class="image-column" style="flex: 2;">
+    <div class="image-column">
         <h3>Single Leg Implemented Simulation 7/24 </h3>
-        <video width="80%" autoplay muted loop>
+        <video width="80%" muted loop controls playsinline preload="metadata">
              <source src="climber-vids/dogclip6.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -75,19 +75,18 @@ All technical components completed by me. Partial funding from grants, Ray, and 
 </div>
 
 ---
-# Inverse Kinematics Test
+## Inverse Kinematics Test
 
 <div class="image-column-container">
-    <div class="image-column" style="flex: 2;">
-        <video width="80%" autoplay muted loop>
+    <div class="image-column">
+        <video width="80%" muted loop controls playsinline preload="metadata">
             <source src="climber-vids/dogclip7.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-    <div class="image-column" style="flex: 1;">
+    <div class="image-column">
         <h3>Calculations</h3>
         <img src="climber-vids/dogclip8.png" alt="Untitled">
         <!-- <img src="climber-vids/dogclip9.jpeg" alt="Untitled"> -->
     </div>
 </div>
-

@@ -1,49 +1,66 @@
 <!doctype html>
-<html>
-<head>
-  <meta charset="utf-8"/>
-  <title>Markdown Template</title> 
-  <!-- Minimal Github Markdown styling -->
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <!-- Only works with network -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=2.0">
-  <link rel="shortcut icon" href="../assets/croppedimg.png" type="image/png">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/maicons.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/minibar.virtual.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/topbar.virtual.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/virtual.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/topbar.virtual.css">
-  <!-- Markdown Page -->
-  <link rel="stylesheet" type="text/css" href="../../assets/css/markdown.css">
-</head>
-<body>
-  <div id="topbar" class="navbar navbar-expand-lg navbar-dark bg-dark"></div>
-
-  <script> 
-    $(document).ready(function(){
-      $("#topbar").load("/shared_elements/topbar.html", function() {
-      });
-    });
-  </script>
-  <div class="row">
-    <div class="col-md-6">
-      <button class="back-button">Back</button>
-  <script> 
-  document.querySelector('.back-button').addEventListener('click', function() {
-    window.history.back();
-  });
-  </script>
-    </div>
-    </div>
-    <div class="col-md-6"></div>
-      <h1 id="project-title">Coil Launcher / Sorter</h1>
-    </div>
-  </div>
-  <div class="markdown-body" id="content"></div>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="kcapstone.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="5-Stage Coil Launcher — an engineering project by Eric Hou."
+    />
+    <title>5-Stage Coil Launcher — Eric Hou</title>
+    <link rel="icon" href="../../assets/croppedimg.png" type="image/png" />
+    <link rel="stylesheet" href="../../assets/css/portfolio.css?v=5" />
+    <link rel="stylesheet" href="../../assets/css/project.css?v=3" />
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <a class="wordmark" href="../../index.html">Eric Hou</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="../../index.html#skills">Skills</a
+        ><a href="../../projects.html">Projects</a
+        ><a href="../../index.html#contact">Contact</a
+        ><a href="../../assets/docs/Eric-Hou-Resume.pdf">Resume</a>
+      </nav>
+    </header>
+    <main class="simple-page shell case-study">
+      <a class="arrow-link project-back" href="../../projects.html"
+        >← All projects</a
+      >
+      <p class="case-kicker">Power electronics · 2025</p>
+      <h1>5-Stage Coil Launcher</h1>
+      <article
+        class="project-content"
+        data-markdown="kcapstone.md"
+        aria-label="Project details"
+      >
+        <p>Loading project…</p>
+      </article>
+      <noscript
+        ><p>
+          <a href="kcapstone.md">Read the project Markdown</a> (JavaScript is
+          needed to display it here).
+        </p></noscript
+      >
+    </main>
+    <footer class="site-footer">
+      <a class="footer-mark" href="../../index.html">Eric Hou</a>
+      <div class="footer-links" aria-label="Social links">
+        <a href="mailto:hyweric@gmail.com">Email</a
+        ><a href="https://www.linkedin.com/in/erichou2007/">LinkedIn</a
+        ><a href="https://github.com/hyweric">GitHub</a>
+      </div>
+      <a class="back-to-top" href="#top">Back to top ↑</a>
+    </footer>
+    <script src="../../assets/js/marked.umd.js"></script>
+    <script src="../../assets/js/project.js?v=3"></script>
+    <script src="../../assets/js/portfolio.js?v=5"></script>
+  </body>
 </html>
