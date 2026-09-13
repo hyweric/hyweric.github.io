@@ -42,7 +42,11 @@
   margin: 0;
 }
 .project-content .layout-sample {
-  margin-top: 3.5rem !important;
+  margin-top: 0 !important;
+}
+.pcb-layout-views {
+  display: grid;
+  gap: 1.25rem;
 }
 .project-content .volumetric-gallery figcaption {
   margin-top: 0.7rem;

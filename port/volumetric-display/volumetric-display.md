@@ -19,7 +19,10 @@ A handheld persistence-of-vision display with a rotating RGB LED array.
 	</figure>
 	<figure class="layout-sample">
 		<h3 class="media-title">PCB Layout - In Progress</h3>
-		<img src="../../assets/img/projects-img/volumetric-display.png" alt="PCB layouts for the 3D Volumetric Display" />
+		<div class="pcb-layout-views">
+			<img src="../../assets/img/projects-img/volumetric-pcb-layout.png" alt="Routed PCB layouts for the volumetric display LED array, control, power, and motor boards" />
+			<img src="../../assets/img/projects-img/volumetric-pcb-render.png" alt="Rendered PCB view of the volumetric display LED array, control, power, and motor boards" />
+		</div>
 	</figure>
 </div>
 
@@ -34,4 +37,3 @@ A handheld persistence-of-vision display with a rotating RGB LED array.
 - BLDC motor drive
 - Custom 2.4 GHz PCB antenna and RF matching network
 - Battery charging and power-distribution circuitry; USB-C for charging and external power
-
