@@ -1,6 +1,6 @@
 # FTC 2023-2024 Season Robot
 
-**Project Status:** Ongoing
+**Project Status:** Completed
 
 **Project Type:** FTC [Center Stage 2023-2024 Season]
 

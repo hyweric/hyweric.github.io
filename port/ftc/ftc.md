@@ -1,3 +1,5 @@
+**Project Status:** Completed
+
 <strong> Overview: </strong>  As a part of the three-person hardware team of First Tech Challenge (FTC) Team 13356, I’ve worked on various assemblies found in FTC robots, such as drivetrains, intakes, slide systems, and more, to compete in tournaments. Throughout this journey, I’ve acquired valuable skills including computer-aided design (CAD), manufacturing, mechanical design concepts, and diligent testing.
 
 <strong> Accomplishments: </strong> Over the past three years, our team has consistently ranked among the top 30 teams out of 7,000 active teams worldwide. In the past two years, we have been the Winning Alliance Captain at the Northern California States. Additionally, for three consecutive years, we’ve qualified for the Maryland Tech Invitational, a selective competition featuring the top 40 teams globally based solely on robot performance.
@@ -58,4 +60,3 @@ Sprung mecanum pods fold to accommodate obstacles and uneven ground.
 <figure><img src="FTC%20Robots%20(3+%20years)%200b92491938aa4489bfbfdb033a32d7d6/drone-img-clear.png" alt="Plane launcher assembly"><figcaption>Plane launcher assembly</figcaption></figure>
 <figure><video controls playsinline muted loop preload="metadata"><source src="FTC%20Robots%20(3+%20years)%200b92491938aa4489bfbfdb033a32d7d6/videos/drone-demo.mp4" type="video/mp4"></video><figcaption>Launcher demonstration</figcaption></figure>
 </div>
-

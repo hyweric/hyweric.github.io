@@ -1,7 +1,7 @@
 
 <div class="image-column-container">
     <div class="image-column">
-        <strong>Project Status:</strong> Ongoing
+        <strong>Project Status:</strong> Completed
     </div>
     <div class="image-column">
         <strong>Project Type:</strong> Software

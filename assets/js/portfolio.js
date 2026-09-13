@@ -56,6 +56,44 @@ if (projectTrack) {
   let inertiaVelocity = 0;
   let pointer = null;
   let suppressClickUntil = 0;
+  let hoverPoint = null;
+  let pageScrollUntil = 0;
+  let lastPageY = window.scrollY;
+
+  function isHorizontalWheel(event) {
+    return event.shiftKey || Math.abs(event.deltaX) > Math.abs(event.deltaY);
+  }
+  function notePageScroll() {
+    pageScrollUntil = performance.now() + 200;
+    // Page navigation supersedes any previous carousel-wheel cooldown.
+    manualUntil = 0;
+  }
+  window.addEventListener("wheel", event => {
+    if (event.deltaY && !isHorizontalWheel(event)) notePageScroll();
+  }, { passive: true, capture: true });
+  window.addEventListener("scroll", () => {
+    if (window.scrollY !== lastPageY) {
+      lastPageY = window.scrollY;
+      notePageScroll();
+    }
+  }, { passive: true });
+
+  function trackHoverPoint(event) {
+    if (event.pointerType === "touch") return;
+    hoverPoint = { x: event.clientX, y: event.clientY };
+  }
+  document.addEventListener("pointermove", trackHoverPoint, { passive: true });
+  document.addEventListener("pointerover", trackHoverPoint, { passive: true });
+  document.addEventListener("pointerleave", () => { hoverPoint = null; });
+  window.addEventListener("blur", () => { hoverPoint = null; });
+
+  function isHoveringCard() {
+    if (!canHover.matches || !hoverPoint || performance.now() < pageScrollUntil) return false;
+    // Hit-test current geometry: CSS :hover can linger when scrolling moves a card away.
+    const hit = document.elementFromPoint(hoverPoint.x, hoverPoint.y);
+    const card = hit?.closest(".project-card");
+    return Boolean(card && projectTrack.contains(card));
+  }
 
   // One repeated set on either side makes the seam identical in both directions.
   // Copies stay clickable but are excluded from keyboard/screen-reader traversal.
@@ -148,11 +186,22 @@ if (projectTrack) {
   }, true);
   projectTrack.addEventListener(
     "wheel",
-    () => {
+    (event) => {
+      // Vertical wheel gestures scroll the page, not the carousel.
+      if (!isHorizontalWheel(event)) {
+        // A tiny horizontal delta can make the overflow scroller capture both axes.
+        // Route only those diagonal, predominantly vertical gestures to the page.
+        if (event.deltaX && event.cancelable) {
+          event.preventDefault();
+          const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? window.innerHeight : 1;
+          window.scrollBy({ top: event.deltaY * unit, behavior: "instant" });
+        }
+        return;
+      }
       inertiaVelocity = 0;
       manualUntil = performance.now() + 2500;
     },
-    { passive: true },
+    { passive: false },
   );
   projectTrack.addEventListener("keydown", () => {
     inertiaVelocity = 0;
@@ -176,7 +225,7 @@ if (projectTrack) {
       !document.hidden &&
       !touching &&
       time > manualUntil &&
-      !(canHover.matches && projectTrack.querySelector(".project-card:hover"));
+      !isHoveringCard();
     const previousSpeed = speed;
     // Ease automatic motion around hover and drag interactions.
     speed = running ? Math.min(1, speed + elapsed / 180) : Math.max(0, speed - elapsed / 180);
