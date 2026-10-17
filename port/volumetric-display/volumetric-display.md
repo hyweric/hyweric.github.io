@@ -19,7 +19,10 @@ A handheld persistence-of-vision display with a rotating RGB LED array.
 	</figure>
 	<figure class="layout-sample">
 		<h3 class="media-title">Finished PCB Layout</h3>
-		<img src="../../assets/img/projects-img/volumetric-pcb-finished.png" alt="Finished PCB layout for the volumetric display LED array, control, power, and motor boards" />
+		<div class="pcb-layout-views">
+			<img src="../../assets/img/projects-img/volumetric-pcb-finished-render.png" alt="Green rendered view of the finished volumetric display LED array, control, power, and motor boards" />
+			<img src="../../assets/img/projects-img/volumetric-pcb-finished-layout.png" alt="Routed copper layout of the finished volumetric display LED array, control, power, and motor boards" />
+		</div>
 	</figure>
 </div>
 
