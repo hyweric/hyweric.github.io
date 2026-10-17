@@ -18,11 +18,8 @@ A handheld persistence-of-vision display with a rotating RGB LED array.
 		<img src="../../assets/img/projects-img/electronic-hourglass-schematics.png" alt="Six-panel schematic sample for the electronic hourglass display" />
 	</figure>
 	<figure class="layout-sample">
-		<h3 class="media-title">PCB Layout - In Progress</h3>
-		<div class="pcb-layout-views">
-			<img src="../../assets/img/projects-img/volumetric-pcb-layout.png" alt="Routed PCB layouts for the volumetric display LED array, control, power, and motor boards" />
-			<img src="../../assets/img/projects-img/volumetric-pcb-render.png" alt="Rendered PCB view of the volumetric display LED array, control, power, and motor boards" />
-		</div>
+		<h3 class="media-title">Finished PCB Layout</h3>
+		<img src="../../assets/img/projects-img/volumetric-pcb-finished.png" alt="Finished PCB layout for the volumetric display LED array, control, power, and motor boards" />
 	</figure>
 </div>
 

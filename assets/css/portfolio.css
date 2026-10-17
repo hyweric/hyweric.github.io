@@ -226,6 +226,9 @@ img {
     #0c221c 78%
   );
 }
+.project-visual--volumetric img {
+  object-fit: contain;
+}
 .display-spec {
   display: flex;
   flex-direction: column;
