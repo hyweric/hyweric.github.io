@@ -108,7 +108,7 @@ repeated sets. Without JavaScript, the original manual carousel remains.
 `projects.html` contains the static six-project gallery, with three columns on
 desktop, two on tablets, and one on phones. Update its images and captions when
 changing the homepage projects. Skills are grouped in `index.html` under
-Mechanical, EDA, Embedded, and Software.
+Circuit Design, Software, and Hardware.
 
 The FTC Markdown uses `ftc-gallery` for two-column media and
 `ftc-gallery ftc-gallery--three` for three-column media. Wrap each image or
