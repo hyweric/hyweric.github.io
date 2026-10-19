@@ -73,7 +73,7 @@ their names also provide tooltips. Without JavaScript, text links remain usable.
 
 ## Resume
 
-Replace `assets/docs/Eric-Hou-Resume.pdf` to update the linked resume.
+The resume PDF is stored at `assets/docs/Eric-Hou-Resume.pdf`; the site does not display resume links.
 
 ## Contact form
 
